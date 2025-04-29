@@ -1,11 +1,20 @@
 {
   "env": {
     "browser": true,
-    "es2021": true,
+    "es2021": true
   },
   "extends": ["eslint:recommended"],
   "rules": {
     "no-unused-vars": "warn",
-    "semi": ["error", "always"],
+    "semi": ["error", "always"]
   },
+  "ignores": [
+    "node_modules",
+    "dist",
+    "build",
+    ".env",
+    ".github",
+    ".gitmessage.txt",
+    ".eslintrc"
+  ]
 }
