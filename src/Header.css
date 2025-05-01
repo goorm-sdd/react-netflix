@@ -1,0 +1,17 @@
+.Header {
+  height: 80px;
+  width: 375px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+}
+.Header > button {
+  border: none;
+  background-color: black;
+  padding: 5px;
+  margin: 5px;
+}
+
+.Header > button:focus {
+  outline: none;
+}
