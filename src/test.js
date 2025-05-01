@@ -5,4 +5,4 @@ console.log(b);
 const c = 3;
 console.log(c);
 
-//디폴트 분기 변경 후 pr 테스트
+//디폴트 분기 변경 후 commit test
