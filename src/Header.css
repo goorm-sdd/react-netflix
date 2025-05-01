@@ -8,6 +8,7 @@
 .Header > button {
   border: none;
   background-color: black;
+  color: white;
   padding: 5px;
   margin: 5px;
 }
