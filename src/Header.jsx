@@ -1,9 +1,15 @@
-function Header() {
+const Header = () => {
   return (
     <>
-      <h1> test</h1>
+      <div>
+        <button>
+          <img src="./src/assets/netflix-icon.png" alt="Netflix"></img>
+        </button>
+        <button>TV Shows</button>
+        <button>Movies</button>
+      </div>
     </>
   );
-}
+};
 
 export default Header;
