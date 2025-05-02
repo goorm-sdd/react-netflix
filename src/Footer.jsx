@@ -23,7 +23,7 @@ const Footer = () => {
         <img
           src="./src/assets/coming-soon-icon.png"
           alt="coming-soon"
-          className="footer-icon"
+          style={{ width: '22px' }}
         ></img>
         <div>Coming Soon</div>
       </button>
@@ -31,7 +31,7 @@ const Footer = () => {
         <img
           src="./src/assets/mylist-icon.png"
           alt="my-list"
-          className="footer-icon"
+          style={{ width: '22px', marginBottom: '3px' }}
         ></img>
         <div>My List</div>
       </button>
