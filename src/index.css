@@ -1,0 +1,15 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #fff;
+  font-family: sans-serif;
+}
+
+#root {
+  width: 375px;
+  height: 780px;
+  margin: 0 auto;
+  overflow-y: auto;
+}
