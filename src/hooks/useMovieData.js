@@ -7,7 +7,7 @@ export const useMovieData = (fetchUrl) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    let isMounted = true;
+    let isMounted = true; // 컴포넌트 언마운트 시 API 호출 취소
     const fetchData = async () => {
       setLoading(true); // fetchUrl 변경 시 로딩 상태 리셋
       try {
@@ -26,7 +26,7 @@ export const useMovieData = (fetchUrl) => {
 
     fetchData();
     return () => {
-      isMounted = false;
+      isMounted = false; // 컴포넌트 언마운트 시 플래그 설정
     };
   }, [fetchUrl]); // fetchUrl이 변경될 때마다 API를 다시 호출
 
