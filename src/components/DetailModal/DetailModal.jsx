@@ -5,7 +5,12 @@ import { requests } from '../../api/requests';
 import MyListIcon from '../../assets/modal-mylist-icon.png';
 import ShareIcon from '../../assets/modal-share-icon.png';
 
-export default function DetailModal({ isOpen, onClose, movieId }) {
+export default function DetailModal({
+  isOpen,
+  onClose,
+  movieId,
+  mediaType = 'movie',
+}) {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
@@ -13,7 +18,12 @@ export default function DetailModal({ isOpen, onClose, movieId }) {
 
     const fetchDetails = async () => {
       try {
-        const res = await instance.get(requests.fetchMovieDetails(movieId));
+        const endpoint =
+          mediaType === 'movie'
+            ? requests.fetchMovieDetails(movieId)
+            : requests.fetchTVDetails(movieId);
+
+        const res = await instance.get(endpoint);
         const data = res.data;
 
         const subtitle = data.release_date
@@ -37,7 +47,7 @@ export default function DetailModal({ isOpen, onClose, movieId }) {
     };
 
     fetchDetails();
-  }, [isOpen, movieId]);
+  }, [isOpen, movieId, mediaType]);
 
   if (!isOpen || !movie) return null;
 
