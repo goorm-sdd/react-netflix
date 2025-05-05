@@ -2,6 +2,9 @@ import './banner.css';
 import { useEffect, useState } from 'react';
 import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
+import MyListIcon from '../../assets/modal-mylist-icon.png';
+import PlayIcon from '../../assets/play-icon.png';
+import InfoIcon from '../../assets/info-icon.png';
 
 export default function Banner() {
   const [content, setContent] = useState(null);
@@ -26,6 +29,22 @@ export default function Banner() {
           backgroundImage: `url(https://image.tmdb.org/t/p/original${content.poster_path})`,
         }}
       ></div>
+      <div className="banner_contents">
+        <div className="banner_buttons">
+          <div className="banner_mylist">
+            <img src={MyListIcon} alt="My List" className="button_icon" />
+            <p>My List</p>
+          </div>
+          <div className="banner_play">
+            <img src={PlayIcon} alt="Play" className="button_play_icon" />
+            <p>Play</p>
+          </div>
+          <div className="banner_info">
+            <img src={InfoIcon} alt="Info" className="button_icon" />
+            <p>Info</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

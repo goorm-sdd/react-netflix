@@ -1,11 +1,10 @@
 .banner {
-  position: fixed;
   top: 80px;
   left: 0;
   width: 375px;
   height: 661px;
-  z-index: 1;
-  background-color: rgba(250, 0, 0, 0.7);
+  background-color: rgba(255, 0, 0, 0.7);
+  /* background-color: black; */
 }
 
 .banner_poster {
@@ -13,4 +12,68 @@
   height: 415px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+}
+
+.banner_contents {
+  margin-top: 13px;
+  width: 100%;
+  height: 233px;
+  background-color: black;
+}
+
+.banner_buttons {
+  width: 259px;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 0, 0.7);
+}
+
+.banner_mylist,
+.banner_info {
+  width: 41px;
+  height: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.banner_mylist p,
+.banner_info p {
+  font-size: 13.64px;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.banner_play {
+  width: 110.62px;
+  height: 45px;
+  background-color: #c4c4c4;
+  border-radius: 5.63px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.banner_play p {
+  font-size: 20.46px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.button_icon {
+  width: 24px;
+  height: 24px;
+}
+
+.button_play_icon {
+  width: 18px;
+  height: 21.6px;
 }
