@@ -8,6 +8,7 @@ import InfoIcon from '../../assets/info-icon.png';
 
 export default function Banner() {
   const [content, setContent] = useState(null);
+  const [previews, setPreviews] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,6 +18,20 @@ export default function Banner() {
       setContent(random);
     };
     fetchData();
+  }, []);
+
+  useEffect(() => {
+    instance
+      .get(requests.fetchNowPlaying)
+      .then((res) => {
+        const mapped = res.data.results.map((item) => ({
+          id: item.id,
+          title: item.title || item.name,
+          image: `https://image.tmdb.org/t/p/w300${item.poster_path}`,
+        }));
+        setPreviews(mapped);
+      })
+      .catch((err) => console.error('썸네일 불러오기 실패:', err));
   }, []);
 
   if (!content) return null;
@@ -48,7 +63,13 @@ export default function Banner() {
           <div className="banner_preview">
             <p>Previews</p>
           </div>
-          <div className="banner_previews_container"></div>
+          <div className="banner_previews_container">
+            {previews.map((item) => (
+              <div className="preview_item" key={item.id}>
+                <img src={item.image} alt={item.title} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
