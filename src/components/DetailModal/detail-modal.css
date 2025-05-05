@@ -91,6 +91,11 @@
   font-size: 11.4px;
   color: rgba(255, 255, 255, 0.83);
   margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .modal-tags {
