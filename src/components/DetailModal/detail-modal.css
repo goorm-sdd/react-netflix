@@ -2,9 +2,9 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
+  width: 375px;
+  height: 780px;
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,6 +20,7 @@
   animation: fadeInUp 0.3s ease-in-out;
   overflow: hidden;
   font-family: Arial, sans-serif;
+  transform: translate(0, 0);
 }
 
 .modal-poster {
