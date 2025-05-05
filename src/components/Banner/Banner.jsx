@@ -7,7 +7,7 @@ import MyListIcon from '../../assets/modal-mylist-icon.png';
 import PlayIcon from '../../assets/play-icon.png';
 import InfoIcon from '../../assets/info-icon.png';
 
-export default function Banner() {
+export default function Banner({ onPreviewClick }) {
   const [content, setContent] = useState(null);
   const [previews, setPreviews] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -68,7 +68,12 @@ export default function Banner() {
             </div>
             <div className="banner_previews_container">
               {previews.map((item) => (
-                <div className="preview_item" key={item.id}>
+                <div
+                  className="preview_item"
+                  key={item.id}
+                  onClick={() => onPreviewClick(item.id, 'movie')}
+                  style={{ cursor: 'pointer' }}
+                >
                   <img src={item.image} alt={item.title} />
                 </div>
               ))}
