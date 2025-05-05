@@ -28,7 +28,7 @@ const Footer = () => {
         ></img>
         <div>Coming Soon</div>
       </button>
-      <Link to="/MyList" style={{ textDecoration: 'none', color: 'white' }}>
+      <Link to="/MyList">
         <button>
           <img
             src="./src/assets/mylist-icon.png"
