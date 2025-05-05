@@ -44,6 +44,7 @@ export default function Banner() {
             <p>Info</p>
           </div>
         </div>
+        <div className="banner_previews"></div>
       </div>
     </div>
   );
