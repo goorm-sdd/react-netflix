@@ -1,0 +1,98 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  width: 375px;
+  height: 481px;
+  background-color: #000000;
+  padding-top: 56px;
+  color: white;
+  position: relative;
+  text-align: center;
+  animation: fadeInUp 0.3s ease-in-out;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.modal-poster {
+  width: 375px;
+  height: 195px;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+/* Body */
+.modal-body {
+  padding: 0 16px 16px 16px;
+}
+
+.modal-subtitle {
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.modal-description {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.modal-tags {
+  font-size: 12px;
+  color: #aaa;
+  line-height: 1.4;
+}
+
+/* Buttons (My List, Share) */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  padding: 8px 16px;
+}
+
+.icon-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: white;
+  cursor: pointer;
+}
+
+.icon-image {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+  object-fit: contain;
+}
+
+/* 애니메이션 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
