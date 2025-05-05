@@ -1,4 +1,5 @@
 import './Footer.css';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -27,14 +28,16 @@ const Footer = () => {
         ></img>
         <div>Coming Soon</div>
       </button>
-      <button>
-        <img
-          src="./src/assets/mylist-icon.png"
-          alt="my-list"
-          style={{ width: '22px', marginBottom: '3px' }}
-        ></img>
-        <div>My List</div>
-      </button>
+      <Link to="/MyList" style={{ textDecoration: 'none', color: 'white' }}>
+        <button>
+          <img
+            src="./src/assets/mylist-icon.png"
+            alt="my-list"
+            style={{ width: '22px', marginBottom: '3px' }}
+          ></img>
+          <div>My List</div>
+        </button>
+      </Link>
     </div>
   );
 };
