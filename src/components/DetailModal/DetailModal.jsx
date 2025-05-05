@@ -22,7 +22,7 @@ export default function DetailModal({ isOpen, onClose, movie }) {
         </div>
 
         <div className="modal-body">
-          <p className="modal-subtitle">Season 1 Coming December 14</p>
+          <p className="modal-subtitle">{movie.subtitle}</p>
           <h2 className="modal-title">{movie.title}</h2>
           <p className="modal-description">{movie.description}</p>
           <p className="modal-tags">{movie.tags}</p>
