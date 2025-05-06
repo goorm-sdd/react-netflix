@@ -1,24 +1,24 @@
 import React, { useEffect, useState, memo } from 'react';
-import './Logo.css';
+import './Intro.css';
 
-const Logo = memo(() => {
-  const [showLogo, setShowLogo] = useState(true);
+const Intro = memo(() => {
+  const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowLogo(false);
+      setShowIntro(false);
     }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
 
   const handleClick = () => {
-    setShowLogo(false);
+    setShowIntro(false);
   };
 
   return (
-    showLogo && (
-      <div className="logo-container" onClick={handleClick}>
+    showIntro && (
+      <div className="intro-container" onClick={handleClick}>
         <div className="netflix-logo">
           <img src="./src/assets/netflix-logo-icon.png" alt="Netflix Logo" />
         </div>
@@ -27,4 +27,4 @@ const Logo = memo(() => {
   );
 });
 
-export default Logo;
+export default Intro;

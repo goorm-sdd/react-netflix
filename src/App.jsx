@@ -1,5 +1,5 @@
 import './App.css';
-import Logo from './pages/Logo/Logo';
+import Intro from './pages/Intro/Intro';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Banner from './components/Banner/Banner';
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      <Logo />
+      <Intro />
       <Header />
       <Banner onPreviewClick={openModal} onInfoClick={openModal} />
       <Footer />
