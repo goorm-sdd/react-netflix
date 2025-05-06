@@ -16,6 +16,22 @@
   cursor: pointer;
 }
 
+a > button {
+  background-color: black;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
 .footer-icon {
   width: 24px;
+}
+
+.Footer > a {
+  background-color: black;
+  border: none;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
