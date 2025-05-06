@@ -85,17 +85,19 @@ export default function Banner({ onPreviewClick, onInfoClick }) {
 
   useEffect(() => {
     instance
-      .get(requests.fetchNowPlaying)
+      .get(requests.fetchTrending)
       .then((res) => {
-        const mapped = res.data.results.map((item) => ({
-          id: item.id,
-          media_type: 'movie',
-          title: item.title || item.name,
-          image: `https://image.tmdb.org/t/p/w300${item.poster_path}`,
-        }));
+        const mapped = res.data.results
+          .filter((item) => item.poster_path)
+          .map((item) => ({
+            id: item.id,
+            title: item.title || item.name,
+            image: `https://image.tmdb.org/t/p/w300${item.poster_path}`,
+            media_type: item.media_type,
+          }));
         setPreviews(mapped);
       })
-      .catch((err) => console.error('썸네일 불러오기 실패:', err));
+      .catch((err) => console.error('트렌딩 썸네일 불러오기 실패:', err));
   }, []);
 
   if (!content) return null;
