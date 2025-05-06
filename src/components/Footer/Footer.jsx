@@ -4,14 +4,16 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <div className="Footer">
-      <button>
-        <img
-          src="./src/assets/home-icon.png"
-          alt="home"
-          className="footer-icon"
-        ></img>
-        <div>home</div>
-      </button>
+      <Link to="/">
+        <button>
+          <img
+            src="./src/assets/home-icon.png"
+            alt="home"
+            className="footer-icon"
+          ></img>
+          <div>home</div>
+        </button>
+      </Link>
       <button>
         <img
           src="./src/assets/search-icon.png"
