@@ -9,15 +9,16 @@ export default function DetailModal({ isOpen, onClose, movieId, movieType }) {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    if (!isOpen || !movieId) return;
+    if (!isOpen || !movieId || !movieType) return;
 
     const fetchDetails = async () => {
       try {
-        const res = await instance.get(
+        const url =
           movieType === 'tv'
             ? requests.fetchTVDetails(movieId)
-            : requests.fetchMovieDetails(movieId),
-        );
+            : requests.fetchMovieDetails(movieId);
+
+        const res = await instance.get(url);
         const data = res.data;
 
         const subtitle = data.release_date
@@ -30,13 +31,13 @@ export default function DetailModal({ isOpen, onClose, movieId, movieType }) {
 
         setMovie({
           title: data.title || data.name,
-          image: `https://image.tmdb.org/t/p/w300${data.backdrop_path || data.poster_path}`,
+          image: `https://image.tmdb.org/t/p/w500${data.backdrop_path || data.poster_path}`,
           description: data.overview || '설명이 없습니다.',
           subtitle,
           tags,
         });
       } catch (error) {
-        console.error('모달 데이터 로딩 실패:', error);
+        console.error('상세 정보 로딩 실패:', error);
       }
     };
 

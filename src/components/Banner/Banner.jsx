@@ -2,15 +2,13 @@ import './banner.css';
 import { useEffect, useState } from 'react';
 import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
-import DetailModal from '../DetailModal/DetailModal';
 import MyListIcon from '../../assets/modal-mylist-icon.png';
 import PlayIcon from '../../assets/play-icon.png';
 import InfoIcon from '../../assets/info-icon.png';
 
-export default function Banner({ onPreviewClick }) {
+export default function Banner({ onPreviewClick, onInfoClick }) {
   const [content, setContent] = useState(null);
   const [previews, setPreviews] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,54 +37,51 @@ export default function Banner({ onPreviewClick }) {
   if (!content) return null;
 
   return (
-    <>
-      <div className="banner">
-        <div
-          className="banner_poster"
-          style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/original${content.poster_path})`,
-          }}
-        ></div>
-        <div className="banner_contents">
-          <div className="banner_buttons">
-            <div className="banner_mylist">
-              <img src={MyListIcon} alt="My List" className="button_icon" />
-              <p>My List</p>
-            </div>
-            <div className="banner_play">
-              <img src={PlayIcon} alt="Play" className="button_play_icon" />
-              <p>Play</p>
-            </div>
-            <div className="banner_info" onClick={() => setIsOpen(true)}>
-              <img src={InfoIcon} alt="Info" className="button_icon" />
-              <p>Info</p>
-            </div>
+    <div className="banner">
+      <div
+        className="banner_poster"
+        style={{
+          backgroundImage: `url(https://image.tmdb.org/t/p/original${content.poster_path})`,
+          cursor: 'pointer',
+        }}
+        onClick={() => onInfoClick(content.id, content.media_type)}
+      />
+      <div className="banner_contents">
+        <div className="banner_buttons">
+          <div className="banner_mylist">
+            <img src={MyListIcon} alt="My List" className="button_icon" />
+            <p>My List</p>
           </div>
-          <div className="banner_previews">
-            <div className="banner_preview">
-              <p>Previews</p>
-            </div>
-            <div className="banner_previews_container">
-              {previews.map((item) => (
-                <div
-                  className="preview_item"
-                  key={item.id}
-                  onClick={() => onPreviewClick(item.id, 'movie')}
-                  style={{ cursor: 'pointer' }}
-                >
-                  <img src={item.image} alt={item.title} />
-                </div>
-              ))}
-            </div>
+          <div className="banner_play">
+            <img src={PlayIcon} alt="Play" className="button_play_icon" />
+            <p>Play</p>
+          </div>
+          <div
+            className="banner_info"
+            onClick={() => onInfoClick(content.id, content.media_type)}
+          >
+            <img src={InfoIcon} alt="Info" className="button_icon" />
+            <p>Info</p>
+          </div>
+        </div>
+        <div className="banner_previews">
+          <div className="banner_preview">
+            <p>Previews</p>
+          </div>
+          <div className="banner_previews_container">
+            {previews.map((item) => (
+              <div
+                className="preview_item"
+                key={item.id}
+                onClick={() => onPreviewClick(item.id, 'movie')}
+                style={{ cursor: 'pointer' }}
+              >
+                <img src={item.image} alt={item.title} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      <DetailModal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        movieId={content.id}
-        movieType={content.media_type}
-      />
-    </>
+    </div>
   );
 }

@@ -6,26 +6,26 @@ import DetailModal from './components/DetailModal/DetailModal';
 import { useState } from 'react';
 
 function App() {
-  const [selectedMovieId, setSelectedMovieId] = useState(null);
-  const [selectedMovieType, setSelectedMovieType] = useState(null);
+  const [selectedId, setSelectedId] = useState(null);
+  const [selectedType, setSelectedType] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = (id, type) => {
+    setSelectedId(id);
+    setSelectedType(type);
+    setIsOpen(true);
+  };
 
   return (
     <>
       <Header />
-      <Banner
-        onPreviewClick={(id, type) => {
-          setSelectedMovieId(id);
-          setSelectedMovieType(type);
-          setIsOpen(true);
-        }}
-      />
+      <Banner onPreviewClick={openModal} onInfoClick={openModal} />
       <Footer />
       <DetailModal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        movieId={selectedMovieId}
-        movieType={selectedMovieType}
+        movieId={selectedId}
+        movieType={selectedType}
       />
     </>
   );
