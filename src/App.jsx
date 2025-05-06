@@ -5,6 +5,17 @@ import Footer from './components/Footer/Footer';
 import Banner from './components/Banner/Banner';
 import DetailModal from './components/DetailModal/DetailModal';
 import { useState } from 'react';
+import { BrowserRouter, Outlet, Routes, Route } from 'react-router-dom';
+import MyList from './pages/MyList';
+
+function Main({ openModal }) {
+  return (
+    <>
+      <Logo />
+      <Banner onPreviewClick={openModal} onInfoClick={openModal} />
+    </>
+  );
+}
 
 function App() {
   const [selectedId, setSelectedId] = useState(null);
@@ -18,10 +29,32 @@ function App() {
   };
 
   return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              selectedId={selectedId}
+              selectedType={selectedType}
+            />
+          }
+        >
+          <Route index element={<Main openModal={openModal} />} />
+          <Route path="/MyList" element={<MyList />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+function Layout({ isOpen, setIsOpen, selectedId, selectedType }) {
+  return (
     <>
-      <Logo />
       <Header />
-      <Banner onPreviewClick={openModal} onInfoClick={openModal} />
+      <Outlet />
       <Footer />
       <DetailModal
         isOpen={isOpen}
