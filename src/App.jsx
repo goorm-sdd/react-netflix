@@ -1,5 +1,5 @@
 import './App.css';
-import Logo from './pages/Logo/Logo';
+import Intro from './pages/Intro/Intro';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Banner from './components/Banner/Banner';
@@ -11,7 +11,7 @@ import MyList from './pages/MyList';
 function Main({ openModal }) {
   return (
     <>
-      <Logo />
+      <Intro />
       <Banner onPreviewClick={openModal} onInfoClick={openModal} />
     </>
   );
