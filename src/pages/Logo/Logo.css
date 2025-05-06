@@ -1,4 +1,4 @@
-.netflix-logo {
+.logo-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,18 +9,9 @@
   align-items: center;
   background-color: #000;
   z-index: 9999;
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
+  cursor: pointer;
 }
 
 .netflix-logo img {
   width: 200px;
-}
-
-.netflix-logo.fade-out {
-  opacity: 0;
-}
-
-.netflix-logo.hidden {
-  display: none;
 }
