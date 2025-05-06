@@ -65,11 +65,19 @@ export default function Banner({ onPreviewClick, onInfoClick }) {
   }, []);
 
   const movieList = useMemo(() => {
-    return rawMovies.map((item) => ({ ...item, media_type: 'movie' }));
+    return rawMovies.map((item) => ({
+      ...item,
+      media_type: 'movie',
+      genre_ids: item.genre_ids,
+    }));
   }, [rawMovies]);
 
   const tvList = useMemo(() => {
-    return rawTVs.map((item) => ({ ...item, media_type: 'tv' }));
+    return rawTVs.map((item) => ({
+      ...item,
+      media_type: 'tv',
+      genre_ids: item.genre_ids,
+    }));
   }, [rawTVs]);
 
   const combined = useMemo(() => {
@@ -94,6 +102,7 @@ export default function Banner({ onPreviewClick, onInfoClick }) {
             title: item.title || item.name,
             image: `https://image.tmdb.org/t/p/w300${item.poster_path}`,
             media_type: item.media_type,
+            genre_ids: item.genre_ids,
           }));
         setPreviews(mapped);
       })
