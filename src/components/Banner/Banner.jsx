@@ -1,5 +1,5 @@
 import './banner.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
 import MyListIcon from '../../assets/modal-mylist-icon.png';
@@ -7,8 +7,10 @@ import PlayIcon from '../../assets/play-icon.png';
 import InfoIcon from '../../assets/info-icon.png';
 
 export default function Banner({ onPreviewClick, onInfoClick }) {
-  const [content, setContent] = useState(null);
+  const [rawMovies, setRawMovies] = useState([]);
+  const [rawTVs, setRawTVs] = useState([]);
   const [previews, setPreviews] = useState([]);
+  const [content, setContent] = useState(null);
 
   useEffect(() => {
     const fetchMixedContent = async () => {
@@ -39,33 +41,21 @@ export default function Banner({ onPreviewClick, onInfoClick }) {
           instance.get(requests.fetchRealityTV),
         ]);
 
-        const movieList = [
+        setRawMovies([
           ...netflixRes.data.results,
           ...actionMovieRes.data.results,
           ...comedyMovieRes.data.results,
           ...horrorMovieRes.data.results,
           ...romanceMovieRes.data.results,
-        ].map((item) => ({
-          ...item,
-          media_type: 'movie',
-        }));
+        ]);
 
-        const tvList = [
+        setRawTVs([
           ...actionTVRes.data.results,
           ...comedyTVRes.data.results,
           ...docTVRes.data.results,
           ...dramaTVRes.data.results,
           ...realityTVRes.data.results,
-        ].map((item) => ({
-          ...item,
-          media_type: 'tv',
-        }));
-
-        const combined = [...movieList, ...tvList];
-        const random = combined[Math.floor(Math.random() * combined.length)];
-
-        setContent(random);
-        console.log('배너 콘텐츠:', random);
+        ]);
       } catch (error) {
         console.error('배너 콘텐츠 로딩 실패:', error);
       }
@@ -74,12 +64,32 @@ export default function Banner({ onPreviewClick, onInfoClick }) {
     fetchMixedContent();
   }, []);
 
+  const movieList = useMemo(() => {
+    return rawMovies.map((item) => ({ ...item, media_type: 'movie' }));
+  }, [rawMovies]);
+
+  const tvList = useMemo(() => {
+    return rawTVs.map((item) => ({ ...item, media_type: 'tv' }));
+  }, [rawTVs]);
+
+  const combined = useMemo(() => {
+    return [...movieList, ...tvList];
+  }, [movieList, tvList]);
+
+  useEffect(() => {
+    if (combined.length === 0) return;
+    const random = combined[Math.floor(Math.random() * combined.length)];
+    setContent(random);
+    console.log('배너 콘텐츠:', random);
+  }, [combined]);
+
   useEffect(() => {
     instance
       .get(requests.fetchNowPlaying)
       .then((res) => {
         const mapped = res.data.results.map((item) => ({
           id: item.id,
+          media_type: 'movie',
           title: item.title || item.name,
           image: `https://image.tmdb.org/t/p/w300${item.poster_path}`,
         }));
@@ -127,7 +137,7 @@ export default function Banner({ onPreviewClick, onInfoClick }) {
               <div
                 className="preview_item"
                 key={item.id}
-                onClick={() => onPreviewClick(item.id, 'movie')}
+                onClick={() => onPreviewClick(item.id, item.media_type)}
                 style={{ cursor: 'pointer' }}
               >
                 <img src={item.image} alt={item.title} />
