@@ -1,5 +1,5 @@
 import './banner.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
 import MyListIcon from '../../assets/modal-mylist-icon.png';
@@ -7,31 +7,106 @@ import PlayIcon from '../../assets/play-icon.png';
 import InfoIcon from '../../assets/info-icon.png';
 
 export default function Banner({ onPreviewClick, onInfoClick }) {
-  const [content, setContent] = useState(null);
+  const [rawMovies, setRawMovies] = useState([]);
+  const [rawTVs, setRawTVs] = useState([]);
   const [previews, setPreviews] = useState([]);
+  const [content, setContent] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await instance.get(requests.fetchNetflixOriginals);
-      const results = res.data.results;
-      const random = results[Math.floor(Math.random() * results.length)];
-      setContent({ ...random, media_type: 'tv' });
+    const fetchMixedContent = async () => {
+      try {
+        const [
+          netflixRes,
+          actionMovieRes,
+          comedyMovieRes,
+          horrorMovieRes,
+          romanceMovieRes,
+
+          actionTVRes,
+          comedyTVRes,
+          docTVRes,
+          dramaTVRes,
+          realityTVRes,
+        ] = await Promise.all([
+          instance.get(requests.fetchNetflixOriginals),
+          instance.get(requests.fetchActionMovies),
+          instance.get(requests.fetchComedyMovies),
+          instance.get(requests.fetchHorrorMovies),
+          instance.get(requests.fetchRomanceMovies),
+
+          instance.get(requests.fetchActionAdventureTV),
+          instance.get(requests.fetchComedyTV),
+          instance.get(requests.fetchDocumentaryTV),
+          instance.get(requests.fetchDramaTV),
+          instance.get(requests.fetchRealityTV),
+        ]);
+
+        setRawMovies([
+          ...netflixRes.data.results,
+          ...actionMovieRes.data.results,
+          ...comedyMovieRes.data.results,
+          ...horrorMovieRes.data.results,
+          ...romanceMovieRes.data.results,
+        ]);
+
+        setRawTVs([
+          ...actionTVRes.data.results,
+          ...comedyTVRes.data.results,
+          ...docTVRes.data.results,
+          ...dramaTVRes.data.results,
+          ...realityTVRes.data.results,
+        ]);
+      } catch (error) {
+        console.error('배너 콘텐츠 로딩 실패:', error);
+      }
     };
-    fetchData();
+
+    fetchMixedContent();
   }, []);
+
+  const movieList = useMemo(() => {
+    return rawMovies.map((item) => ({
+      ...item,
+      media_type: 'movie',
+      genre_ids: item.genre_ids,
+    }));
+  }, [rawMovies]);
+
+  const tvList = useMemo(() => {
+    return rawTVs.map((item) => ({
+      ...item,
+      media_type: 'tv',
+      genre_ids: item.genre_ids,
+    }));
+  }, [rawTVs]);
+
+  const combined = useMemo(() => {
+    return [...movieList, ...tvList];
+  }, [movieList, tvList]);
+
+  useEffect(() => {
+    if (combined.length === 0) return;
+    const random = combined[Math.floor(Math.random() * combined.length)];
+    setContent(random);
+    console.log('배너 콘텐츠:', random);
+  }, [combined]);
 
   useEffect(() => {
     instance
-      .get(requests.fetchNowPlaying)
+      .get(requests.fetchTrending)
       .then((res) => {
-        const mapped = res.data.results.map((item) => ({
-          id: item.id,
-          title: item.title || item.name,
-          image: `https://image.tmdb.org/t/p/w300${item.poster_path}`,
-        }));
+        const mapped = res.data.results
+          .filter((item) => item.poster_path)
+          .map((item) => ({
+            id: item.id,
+            title: item.title || item.name,
+            image: `https://image.tmdb.org/t/p/w300${item.poster_path}`,
+            media_type: item.media_type,
+            genre_ids: item.genre_ids,
+          }));
         setPreviews(mapped);
       })
-      .catch((err) => console.error('썸네일 불러오기 실패:', err));
+      .catch((err) => console.error('트렌딩 썸네일 불러오기 실패:', err));
   }, []);
 
   if (!content) return null;
@@ -73,7 +148,7 @@ export default function Banner({ onPreviewClick, onInfoClick }) {
               <div
                 className="preview_item"
                 key={item.id}
-                onClick={() => onPreviewClick(item.id, 'movie')}
+                onClick={() => onPreviewClick(item.id, item.media_type)}
                 style={{ cursor: 'pointer' }}
               >
                 <img src={item.image} alt={item.title} />
