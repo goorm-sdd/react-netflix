@@ -6,7 +6,7 @@ import MyListIcon from '../../assets/modal-mylist-icon.png';
 import PlayIcon from '../../assets/play-icon.png';
 import InfoIcon from '../../assets/info-icon.png';
 
-export default function Banner() {
+export default function Banner({ onPreviewClick, onInfoClick }) {
   const [content, setContent] = useState(null);
   const [previews, setPreviews] = useState([]);
 
@@ -15,7 +15,7 @@ export default function Banner() {
       const res = await instance.get(requests.fetchNetflixOriginals);
       const results = res.data.results;
       const random = results[Math.floor(Math.random() * results.length)];
-      setContent(random);
+      setContent({ ...random, media_type: 'tv' });
     };
     fetchData();
   }, []);
@@ -42,8 +42,10 @@ export default function Banner() {
         className="banner_poster"
         style={{
           backgroundImage: `url(https://image.tmdb.org/t/p/original${content.poster_path})`,
+          cursor: 'pointer',
         }}
-      ></div>
+        onClick={() => onInfoClick(content.id, content.media_type)}
+      />
       <div className="banner_contents">
         <div className="banner_buttons">
           <div className="banner_mylist">
@@ -54,7 +56,10 @@ export default function Banner() {
             <img src={PlayIcon} alt="Play" className="button_play_icon" />
             <p>Play</p>
           </div>
-          <div className="banner_info">
+          <div
+            className="banner_info"
+            onClick={() => onInfoClick(content.id, content.media_type)}
+          >
             <img src={InfoIcon} alt="Info" className="button_icon" />
             <p>Info</p>
           </div>
@@ -65,7 +70,12 @@ export default function Banner() {
           </div>
           <div className="banner_previews_container">
             {previews.map((item) => (
-              <div className="preview_item" key={item.id}>
+              <div
+                className="preview_item"
+                key={item.id}
+                onClick={() => onPreviewClick(item.id, 'movie')}
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={item.image} alt={item.title} />
               </div>
             ))}
