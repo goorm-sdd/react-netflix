@@ -9,29 +9,18 @@
   justify-content: space-around;
 }
 
-.Footer > button {
+.Footer > a {
   background-color: black;
-  border: none;
+  text-decoration: none;
   color: white;
+  padding: 5px;
+  margin: 5px;
   cursor: pointer;
-}
-
-a > button {
-  background-color: black;
-  border: none;
-  color: white;
-  cursor: pointer;
+  font-size: 8px;
+  align-content: center;
+  text-align: center;
 }
 
 .footer-icon {
   width: 24px;
-}
-
-.Footer > a {
-  background-color: black;
-  border: none;
-  color: white;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
 }
