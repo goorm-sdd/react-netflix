@@ -11,7 +11,7 @@ import MyList from './pages/MyList';
 function Main({ openModal }) {
   return (
     <>
-      <Logo />
+      <Intro />
       <Banner onPreviewClick={openModal} onInfoClick={openModal} />
     </>
   );
@@ -53,7 +53,6 @@ function App() {
 function Layout({ isOpen, setIsOpen, selectedId, selectedType }) {
   return (
     <>
-      <Intro />
       <Header />
       <Outlet />
       <Footer />
