@@ -25,13 +25,13 @@ const Header = () => {
       )}
       {isMyListPage && (
         <>
-          <button>
+          <button className="mylist">
+            <div>My List</div>
             <img
               src="./src/assets/arrow-down.png"
               alt="arrow-down"
-              style={{ width: '22px' }}
+              className="arrow-down"
             ></img>
-            <div>My List</div>
           </button>
         </>
       )}
