@@ -11,13 +11,67 @@ export default function Banner({ onPreviewClick, onInfoClick }) {
   const [previews, setPreviews] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await instance.get(requests.fetchNetflixOriginals);
-      const results = res.data.results;
-      const random = results[Math.floor(Math.random() * results.length)];
-      setContent({ ...random, media_type: 'tv' });
+    const fetchMixedContent = async () => {
+      try {
+        const [
+          netflixRes,
+          actionMovieRes,
+          comedyMovieRes,
+          horrorMovieRes,
+          romanceMovieRes,
+
+          actionTVRes,
+          comedyTVRes,
+          docTVRes,
+          dramaTVRes,
+          realityTVRes,
+        ] = await Promise.all([
+          instance.get(requests.fetchNetflixOriginals),
+          instance.get(requests.fetchActionMovies),
+          instance.get(requests.fetchComedyMovies),
+          instance.get(requests.fetchHorrorMovies),
+          instance.get(requests.fetchRomanceMovies),
+
+          instance.get(requests.fetchActionAdventureTV),
+          instance.get(requests.fetchComedyTV),
+          instance.get(requests.fetchDocumentaryTV),
+          instance.get(requests.fetchDramaTV),
+          instance.get(requests.fetchRealityTV),
+        ]);
+
+        const movieList = [
+          ...netflixRes.data.results,
+          ...actionMovieRes.data.results,
+          ...comedyMovieRes.data.results,
+          ...horrorMovieRes.data.results,
+          ...romanceMovieRes.data.results,
+        ].map((item) => ({
+          ...item,
+          media_type: 'movie',
+        }));
+
+        const tvList = [
+          ...actionTVRes.data.results,
+          ...comedyTVRes.data.results,
+          ...docTVRes.data.results,
+          ...dramaTVRes.data.results,
+          ...realityTVRes.data.results,
+        ].map((item) => ({
+          ...item,
+          media_type: 'tv',
+        }));
+
+        const combined = [...movieList, ...tvList];
+        const random = combined[Math.floor(Math.random() * combined.length)];
+
+        setContent(random);
+        console.log('배너 콘텐츠:', random);
+      } catch (error) {
+        console.error('배너 콘텐츠 로딩 실패:', error);
+      }
     };
-    fetchData();
+
+    fetchMixedContent();
   }, []);
 
   useEffect(() => {
