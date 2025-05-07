@@ -56,7 +56,12 @@ const EachTVGenrePage = () => {
         }
 
         const response = await instance.get(request);
-        setTVShows((prevTVShows) => [...prevTVShows, ...response.data.results]);
+        setTVShows((prevTVShows) => {
+          const uniqueTVShows = response.data.results.filter(
+            (tvShow) => !prevTVShows.some((t) => t.id === tvShow.id),
+          );
+          return [...prevTVShows, ...uniqueTVShows];
+        });
         setLoading(false);
       } catch (error) {
         console.error('Error fetching TV shows:', error);
