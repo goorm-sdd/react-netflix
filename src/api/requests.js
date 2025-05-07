@@ -11,7 +11,7 @@ export const requests = {
   fetchHorrorMovies: '/discover/movie?with_genres=27',
   fetchRomanceMovies: '/discover/movie?with_genres=10749',
   fetchDocumentaries: '/discover/movie?with_genres=99',
-
+  fetchUpcoming: '/movie/upcoming', //upcomming request추가
   // TV
   fetchActionAdventureTV: '/discover/tv?with_genres=10759',
   fetchComedyTV: '/discover/tv?with_genres=35',
