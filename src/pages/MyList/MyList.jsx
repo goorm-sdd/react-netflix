@@ -6,8 +6,6 @@ const MyList = () => {
 
   return (
     <div className="mylist-page">
-      <h1>My List</h1>
-
       {myList.length === 0 ? (
         <div className="empty-list">
           <p>Your list is empty. Add some movies or TV shows!</p>
