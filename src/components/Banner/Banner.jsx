@@ -148,8 +148,12 @@ export default function Banner({ onPreviewClick, onInfoClick }) {
             className={`banner_mylist ${contentInMyList ? 'active' : ''}`}
             onClick={handleMyListClick}
           >
-            <img src={MyListIcon} alt="My List" className="button_icon" />
-            <p>{contentInMyList ? 'Remove from My List' : 'My List'}</p>
+            <img
+              src={MyListIcon}
+              alt="My List"
+              className={`button_icon ${contentInMyList ? 'active' : ''}`}
+            />
+            <p>My List</p>
           </div>
           <div className="banner_play">
             <img src={PlayIcon} alt="Play" className="button_play_icon" />
