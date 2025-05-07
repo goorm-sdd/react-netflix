@@ -4,6 +4,7 @@ import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
 import MyListIcon from '../../assets/modal-mylist-icon.png';
 import ShareIcon from '../../assets/modal-share-icon.png';
+import { useMyList } from '../../pages/MyList/MyListContext';
 
 export default function DetailModal({ isOpen, onClose, movieId, movieType }) {
   const [movie, setMovie] = useState(null);
@@ -44,6 +45,25 @@ export default function DetailModal({ isOpen, onClose, movieId, movieType }) {
     fetchDetails();
   }, [isOpen, movieId, movieType]);
 
+  const { addToMyList, removeFromMyList, isInMyList } = useMyList();
+
+  const inMyList = movieId ? isInMyList(movieId) : false;
+
+  const handleMyListClick = () => {
+    if (!movie) return;
+
+    if (inMyList) {
+      removeFromMyList(movieId);
+    } else {
+      addToMyList({
+        id: movieId,
+        title: movie.title,
+        image: movie.image,
+        media_type: movieType,
+      });
+    }
+  };
+
   if (!isOpen || !movie) return null;
 
   return (
@@ -52,8 +72,12 @@ export default function DetailModal({ isOpen, onClose, movieId, movieType }) {
         <img className="modal-poster" src={movie.image} alt={movie.title} />
         <div className="modal-detail">
           <div className="modal-buttons">
-            <div className="icon-button">
-              <img src={MyListIcon} alt="My List" className="icon-image" />
+            <div className="icon-button" onClick={handleMyListClick}>
+              <img
+                src={MyListIcon}
+                alt="My List"
+                className={`icon-image ${inMyList ? 'active' : ''}`}
+              />
               <p>My List</p>
             </div>
             <div className="icon-button">

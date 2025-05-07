@@ -84,3 +84,11 @@
 .button_icon.active {
   transform: rotate(45deg);
 }
+
+.icon-image {
+  transition: transform 0.3s ease;
+}
+
+.icon-image.active {
+  transform: rotate(45deg);
+}
