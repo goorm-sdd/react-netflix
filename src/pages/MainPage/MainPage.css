@@ -1,0 +1,9 @@
+.main-page {
+  width: 375px;
+  background-color: #000000;
+  padding: 0 12px;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  overflow-x: hidden;
+}

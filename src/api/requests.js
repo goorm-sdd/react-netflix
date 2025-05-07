@@ -26,4 +26,8 @@ export const requests = {
   // 디테일
   fetchMovieDetails: (movieId) => `/movie/${movieId}`,
   fetchTVDetails: (tvId) => `/tv/${tvId}`,
+
+  //이미지
+  fetchMovieImages: (movieId) => `/movie/${movieId}/images`,
+  fetchTVImages: (tvId) => `/tv/${tvId}/images`,
 };

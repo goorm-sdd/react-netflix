@@ -1,6 +1,7 @@
 import Banner from '../../components/Banner/Banner';
 import DetailModal from '../../components/DetailModal/DetailModal';
 import { useState } from 'react';
+import MainPage from '../MainPage';
 
 const Home = () => {
   const [selectedId, setSelectedId] = useState(null);
@@ -22,6 +23,7 @@ const Home = () => {
         movieId={selectedId}
         movieType={selectedType}
       />
+      <MainPage />
     </div>
   );
 };
