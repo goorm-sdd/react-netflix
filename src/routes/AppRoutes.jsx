@@ -4,8 +4,8 @@ import TVShows from '../pages/TVShows/TVShows.jsx';
 import Movies from '../pages/Movies/Movies.jsx';
 import Search from '../pages/Search/Search';
 import ComingSoon from '../pages/ComingSoon/ComingSoon';
-import MyList from '../pages/MyList/MyList';
 import MainLayout from '../layouts/MainLayout';
+import { MyListProvider } from '../pages/MyList/MyListContext.jsx';
 
 const AppRoutes = () => {
   return (
@@ -17,7 +17,7 @@ const AppRoutes = () => {
           <Route path="/movies" element={<Movies />} />
           <Route path="/search" element={<Search />} />
           <Route path="/coming-soon" element={<ComingSoon />} />
-          <Route path="/my-list" element={<MyList />} />
+          <Route path="/my-list" element={<MyListProvider />} />
         </Route>
       </Routes>
     </Router>
