@@ -25,6 +25,11 @@ const EachMovieGenrePage = () => {
   );
 
   useEffect(() => {
+    setMovies([]);
+    setPage(1);
+  }, [genreName]);
+
+  useEffect(() => {
     const fetchMovies = async () => {
       try {
         setLoading(true);

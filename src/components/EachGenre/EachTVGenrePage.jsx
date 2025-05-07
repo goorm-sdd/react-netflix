@@ -25,6 +25,11 @@ const EachTVGenrePage = () => {
   );
 
   useEffect(() => {
+    setTVShows([]);
+    setPage(1);
+  }, [genreName]);
+
+  useEffect(() => {
     const fetchTVShows = async () => {
       try {
         setLoading(true);
