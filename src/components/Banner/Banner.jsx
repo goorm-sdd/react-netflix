@@ -5,7 +5,7 @@ import { requests } from '../../api/requests';
 import MyListIcon from '../../assets/modal-mylist-icon.png';
 import PlayIcon from '../../assets/play-icon.png';
 import InfoIcon from '../../assets/info-icon.png';
-import { useMyList } from '../../pages/MyList/UseMyList';
+import { useMyList } from '../../pages/MyList/MyListContext';
 
 export default function Banner({ onPreviewClick, onInfoClick }) {
   const [rawMovies, setRawMovies] = useState([]);

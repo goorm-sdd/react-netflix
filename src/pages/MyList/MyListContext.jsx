@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
+
+export const MyListContext = createContext();
 
 export const MyListProvider = ({ children }) => {
   const [myList, setMyList] = useState(() => {
@@ -41,4 +43,8 @@ export const MyListProvider = ({ children }) => {
   return (
     <MyListContext.Provider value={value}>{children}</MyListContext.Provider>
   );
+};
+
+export const useMyList = () => {
+  return useContext(MyListContext);
 };
