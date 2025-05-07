@@ -12,25 +12,25 @@ export const MyListProvider = ({ children }) => {
     localStorage.setItem('myList', JSON.stringify(myList));
   }, [myList]);
 
-  const addToMyList = (movie) => {
-    if (!myList.some((item) => item.id === movie.id)) {
+  const addToMyList = (content) => {
+    if (!myList.some((item) => item.id === content.id)) {
       setMyList((prevList) => {
-        const updatedList = [...prevList, movie];
+        const updatedList = [...prevList, content];
         localStorage.setItem('myList', JSON.stringify(updatedList));
         return updatedList;
       });
     }
   };
-  const removeFromMyList = (movieId) => {
+  const removeFromMyList = (contentId) => {
     setMyList((prevList) => {
-      const updatedList = prevList.filter((movie) => movie.id !== movieId);
+      const updatedList = prevList.filter((movie) => movie.id !== contentId);
       localStorage.setItem('myList', JSON.stringify(updatedList));
       return updatedList;
     });
   };
 
-  const isInMyList = (movieId) => {
-    return myList.some((item) => item.id === movieId);
+  const isInMyList = (contentId) => {
+    return myList.some((item) => item.id === contentId);
   };
 
   const value = {
