@@ -3,18 +3,18 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  background-color: #fff;
+  background-color: #000000;
   font-family: sans-serif;
 }
 
 #root {
   width: 375px;
-  /* height: 780px; */
+  height: 100vh;
   /* margin: 0 auto; */
   padding-top: 80px;
   padding-bottom: 60px;
   overflow-y: scroll;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 }
 
 ::-webkit-scrollbar {
