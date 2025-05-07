@@ -15,7 +15,6 @@ export default function ComingSoon() {
 
   return (
     <div className="coming-soon-container">
-      <h1 className="page-title"></h1>
       <div className="movie-list">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
