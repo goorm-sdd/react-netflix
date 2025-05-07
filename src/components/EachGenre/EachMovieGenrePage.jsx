@@ -59,7 +59,13 @@ const EachMovieGenrePage = () => {
         }
 
         const response = await instance.get(request);
-        setMovies((prevMovies) => [...prevMovies, ...response.data.results]);
+        const newMovies = response.data.results;
+        setMovies((prevMovies) => {
+          const uniqueMovies = newMovies.filter(
+            (movie) => !prevMovies.some((m) => m.id === movie.id),
+          );
+          return [...prevMovies, ...uniqueMovies];
+        });
         setLoading(false);
       } catch (error) {
         console.error('Error fetching movies:', error);
