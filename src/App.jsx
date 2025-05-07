@@ -7,9 +7,19 @@ import Footer from './components/Footer/Footer';
 import Banner from './components/Banner/Banner';
 import DetailModal from './components/DetailModal/DetailModal';
 import MainPage from './pages/MainPage';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Outlet, Routes, Route } from 'react-router-dom';
 import MyList from './pages/MyList/MyList';
 import Category from './pages/Category/Category';
+
+function Main({ openModal }) {
+  return (
+    <>
+      <Intro />
+      <Banner onPreviewClick={openModal} onInfoClick={openModal} />
+      <MainPage />
+    </>
+  );
+}
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
