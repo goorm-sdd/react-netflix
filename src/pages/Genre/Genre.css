@@ -1,0 +1,17 @@
+.genre-page {
+  padding: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.grid-item {
+  position: relative;
+}
+.grid-item img {
+  width: 100%;
+  height: auto;
+}
