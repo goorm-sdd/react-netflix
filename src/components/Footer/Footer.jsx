@@ -1,41 +1,42 @@
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
   return (
-    <div className="Footer">
-      <button>
+    <footer className="Footer">
+      <Link to="/">
         <img
           src="./src/assets/home-icon.png"
           alt="home"
           className="footer-icon"
-        ></img>
-        <div>home</div>
-      </button>
-      <button>
+        />
+        <div>Home</div>
+      </Link>
+      <Link to="/search">
         <img
           src="./src/assets/search-icon.png"
           alt="search"
           className="footer-icon"
-        ></img>
+        />
         <div>Search</div>
-      </button>
-      <button>
+      </Link>
+      <Link to="/coming-soon">
         <img
           src="./src/assets/coming-soon-icon.png"
           alt="coming-soon"
           style={{ width: '22px' }}
-        ></img>
+        />
         <div>Coming Soon</div>
-      </button>
-      <button>
+      </Link>
+      <Link to="/my-list">
         <img
           src="./src/assets/mylist-icon.png"
           alt="my-list"
           style={{ width: '22px', marginBottom: '3px' }}
-        ></img>
+        />
         <div>My List</div>
-      </button>
-    </div>
+      </Link>
+    </footer>
   );
 };
 

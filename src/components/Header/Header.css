@@ -8,16 +8,72 @@
   z-index: 10;
   display: flex;
   align-items: center;
+  gap: 10px;
+  color: white;
 }
-.Header > button {
-  border: none;
+
+.Header a {
   background-color: black;
+  text-decoration: none;
   color: white;
   padding: 5px;
   margin: 5px;
   cursor: pointer;
+  font-size: 17.2px;
 }
 
-.Header > button:focus {
-  outline: none;
+.Header a:hover {
+  text-decoration: underline;
+}
+
+.Dropdown {
+  padding: 5px;
+  margin: 5px;
+  width: 105px;
+  position: relative;
+  cursor: pointer;
+  color: #fff;
+  font-size: 17.2px;
+}
+
+.Dropdown:hover {
+  font-weight: bold;
+}
+
+.Dropdown span {
+  margin-left: 5px;
+}
+
+.Dropdown-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 375px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.Dropdown-menu div {
+  margin-bottom: 10px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 24.68px;
+}
+
+.Dropdown-menu div:hover {
+  text-decoration: underline;
+}
+
+.Dropdown-close {
+  position: absolute;
+  bottom: 40px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
 }

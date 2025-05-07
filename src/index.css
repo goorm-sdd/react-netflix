@@ -10,6 +10,16 @@ body {
 #root {
   width: 375px;
   height: 780px;
-  margin: 0 auto;
-  overflow-y: auto;
+  /* margin: 0 auto; */
+  padding-top: 80px;
+  padding-bottom: 60px;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
