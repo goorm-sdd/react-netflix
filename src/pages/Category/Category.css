@@ -24,15 +24,12 @@
   margin-top: 20px;
 }
 
-.profile {
-  cursor: pointer;
-}
-
 .profile img {
   width: 100px;
   height: 92px;
   border-radius: 8px;
   transition: transform 0.3s;
+  cursor: pointer;
 }
 
 .profile img:hover {
