@@ -1,38 +1,56 @@
 import './Header.css';
 import { Link, useLocation } from 'react-router-dom';
+import Logo from './Logo/Logo';
+import BlackScreen from '../BlackScreen/BlackScreen';
 
 const Header = () => {
   const location = useLocation();
-  const isMyListPage = location.pathname === '/MyList';
+
+  const isMoviesPage = location.pathname === '/movies';
+  const isTVShowsPage = location.pathname === '/tv-shows';
+  const isHomePage = location.pathname === '/';
 
   return (
     <div className="Header">
-      <Link to="/">
-        <button>
-          <img
-            src="./src/assets/netflix-icon.png"
-            alt="Netflix"
-            style={{ width: '40px' }}
-          ></img>
-        </button>
-      </Link>
-
-      {!isMyListPage && (
+      <Logo />
+      {isTVShowsPage && (
         <>
-          <button>TV Shows</button>
-          <button>Movies</button>
+          <BlackScreen
+            title="TV Shows"
+            items={['All', 'TV Shows', 'Movies', 'My List']}
+          />
+          <BlackScreen
+            title="All Genres"
+            items={[
+              'Action & Adventure',
+              'Comedy',
+              'Documentary',
+              'Drama',
+              'Reality',
+            ]}
+          />
         </>
       )}
-      {isMyListPage && (
+      {isMoviesPage && (
         <>
-          <button className="mylist">
-            <div>My List</div>
-            <img
-              src="./src/assets/arrow-down.png"
-              alt="arrow-down"
-              className="arrow-down"
-            ></img>
-          </button>
+          <BlackScreen
+            title="Movies"
+            items={['All', 'TV Shows', 'Movies', 'My List']}
+          />
+          <BlackScreen
+            title="All Genres"
+            items={['Action', 'Comedy', 'Horror', 'Romance']}
+          />
+        </>
+      )}
+      {isHomePage && (
+        <>
+          <Link to="/tv-shows" className="Header-link">
+            TV Shows
+          </Link>
+          <Link to="/movies" className="Header-link">
+            Movies
+          </Link>
         </>
       )}
     </div>

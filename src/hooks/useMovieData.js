@@ -13,7 +13,9 @@ export const useMovieData = (fetchUrl) => {
       try {
         const response = await instance.get(fetchUrl);
         if (isMounted) {
-          setData(response.data.results);
+          setData(
+            response.data && response.data.results ? response.data.results : [],
+          );
           setLoading(false);
         }
       } catch (err) {
