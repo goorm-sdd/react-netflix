@@ -1,5 +1,6 @@
-import { useContext } from 'react';
-import { MyListContext } from './MyListContext';
+import { createContext, useContext } from 'react';
+
+const MyListContext = createContext();
 
 export const useMyList = () => {
   return useContext(MyListContext);

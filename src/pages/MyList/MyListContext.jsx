@@ -1,6 +1,4 @@
-import { createContext, useState, useEffect } from 'react';
-
-const MyListContext = createContext();
+import { useState, useEffect } from 'react';
 
 export const MyListProvider = ({ children }) => {
   const [myList, setMyList] = useState(() => {
