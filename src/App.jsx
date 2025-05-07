@@ -7,9 +7,8 @@ import Footer from './components/Footer/Footer';
 import Banner from './components/Banner/Banner';
 import DetailModal from './components/DetailModal/DetailModal';
 import MainPage from './pages/MainPage';
-import { useState } from 'react';
 import { BrowserRouter, Outlet, Routes, Route } from 'react-router-dom';
-import MyList from './pages/MyList';
+import MyList from './pages/MyList/MyList';
 
 function Main({ openModal }) {
   return (
