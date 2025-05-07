@@ -7,21 +7,13 @@ import Footer from './components/Footer/Footer';
 import Banner from './components/Banner/Banner';
 import DetailModal from './components/DetailModal/DetailModal';
 import MainPage from './pages/MainPage';
-import { BrowserRouter, Outlet, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MyList from './pages/MyList/MyList';
-
-function Main({ openModal }) {
-  return (
-    <>
-      <Intro />
-      <Banner onPreviewClick={openModal} onInfoClick={openModal} />
-      <MainPage />
-    </>
-  );
-}
+import Category from './pages/Category/Category';
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
+  const [selectedProfile, setSelectedProfile] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -34,6 +26,9 @@ function App() {
   const handleIntroClick = () => {
     setShowIntro(false);
   };
+  const handleProfileSelect = (profile) => {
+    setSelectedProfile(profile);
+  };
 
   return (
     <>
@@ -41,6 +36,8 @@ function App() {
         <div onClick={handleIntroClick}>
           <Intro />
         </div>
+      ) : !selectedProfile ? (
+        <Category onProfileSelect={handleProfileSelect} />
       ) : (
         <AppRoutes />
       )}

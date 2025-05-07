@@ -1,0 +1,46 @@
+.category-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 375px;
+  height: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  z-index: 9999;
+}
+
+.netflix-logo-category {
+  width: 138px;
+  height: 37px;
+  margin: 40px;
+}
+
+.profiles {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.profile {
+  cursor: pointer;
+}
+
+.profile img {
+  width: 100px;
+  height: 92px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.profile img:hover {
+  transform: scale(1.1);
+}
+
+.profile p {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: white;
+}
