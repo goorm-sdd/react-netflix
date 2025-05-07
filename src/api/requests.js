@@ -4,8 +4,11 @@ export const requests = {
   fetchNetflixOriginals: '/discover/movie?with_networks=213',
   fetchTrending: '/trending/all/week',
   fetchTopRated: '/movie/top_rated',
-  fetchReleaseDates: '/movie/{movie_id}/release_dates',
-  fetchWatchlist: 'account/{account_id}/watchlist/movies',
+
+  fetchReleaseDates: (movieId) => `/movie/${movieId}/release_dates`,
+  fetchWatchlist: (accountId) => `/account/${accountId}/watchlist/movies`,
+
+  //movie
   fetchActionMovies: '/discover/movie?with_genres=28',
   fetchComedyMovies: '/discover/movie?with_genres=35',
   fetchHorrorMovies: '/discover/movie?with_genres=27',
@@ -20,8 +23,9 @@ export const requests = {
   fetchRealityTV: '/discover/tv?with_genres=10764',
 
   // 검색
-  fetchSearchMovies: (query) => `/search/movie?query=${query}`,
-  fetchSearchTV: (query) => `/search/tv?query=${query}`,
+  fetchSearchMovies: (query) =>
+    `/search/movie?query=${encodeURIComponent(query)}`,
+  fetchSearchTV: (query) => `/search/tv?query=${encodeURIComponent(query)}`,
 
   // 디테일
   fetchMovieDetails: (movieId) => `/movie/${movieId}`,
