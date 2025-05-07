@@ -17,11 +17,7 @@ const MyList = () => {
           {myList.map((item) => (
             <div className="mylist-item" key={item.id}>
               <div className="poster-container">
-                <img
-                  src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
-                  alt={item.title}
-                  className="poster"
-                />
+                <img src={item.image} alt={item.title} className="poster" />
                 <div className="item-overlay">
                   <h3>{item.title}</h3>
                   <button
