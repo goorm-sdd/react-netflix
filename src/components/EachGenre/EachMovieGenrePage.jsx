@@ -36,6 +36,9 @@ const EachMovieGenrePage = () => {
         let request;
 
         switch (genreName) {
+          case 'netflix-originals':
+            request = `${requests.fetchNetflixOriginals}&page=${page}`;
+            break;
           case 'action':
             request = `${requests.fetchActionMovies}&page=${page}`;
             break;

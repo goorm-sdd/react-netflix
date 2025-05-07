@@ -20,11 +20,15 @@ const Header = () => {
       location.pathname.includes('/movies/') ||
       location.pathname.includes('/tv-shows/')
     ) {
-      return genreName
-        .replace(/-/g, ' & ')
-        .split(' ')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
+      switch (genreName) {
+        case 'action-adventure':
+          return 'Action & Adventure';
+        default:
+          return genreName
+            .split('-')
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+      }
     }
     return '';
   };
@@ -62,6 +66,7 @@ const Header = () => {
           <BlackScreen
             title="All Genres"
             items={[
+              { label: 'Netflix Originals', path: '/movies/netflix-originals' },
               { label: 'Action', path: '/movies/action' },
               { label: 'Comedy', path: '/movies/comedy' },
               { label: 'Horror', path: '/movies/horror' },
@@ -95,6 +100,10 @@ const Header = () => {
             items={
               location.pathname.includes('/movies/')
                 ? [
+                    {
+                      label: 'Netflix Originals',
+                      path: '/movies/netflix-originals',
+                    },
                     { label: 'Action', path: '/movies/action' },
                     { label: 'Comedy', path: '/movies/comedy' },
                     { label: 'Horror', path: '/movies/horror' },
