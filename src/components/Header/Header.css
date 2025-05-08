@@ -25,15 +25,17 @@
 .Dropdown {
   padding: 5px;
   margin: 5px;
-
   position: relative;
   cursor: pointer;
   color: #fff;
   font-size: 17.2px;
 }
 
+.Dropdown:hover {
+  text-decoration: underline;
+}
 .Dropdown span {
-  margin-left: 5px;
+  font-size: 13px;
 }
 
 .Dropdown-menu {
@@ -57,7 +59,13 @@
   color: #fff;
   font-size: 24.68px;
 }
-
+.Dropdown-menu a {
+  color: gray;
+}
+.Dropdown-menu a:hover {
+  text-decoration: underline;
+  color: white;
+}
 .Dropdown-menu div:hover {
   text-decoration: underline;
 }
@@ -68,4 +76,8 @@
   cursor: pointer;
   font-size: 24px;
   color: #fff;
+}
+
+.Header-link:hover {
+  text-decoration: underline;
 }
