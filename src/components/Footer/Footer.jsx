@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="Footer">
       <Link to="/">
         <img
-          src="./src/assets/home-icon.png"
+          src="./src/assets/home-icon.svg"
           alt="home"
           className="footer-icon"
         />
@@ -14,7 +14,7 @@ const Footer = () => {
       </Link>
       <Link to="/search">
         <img
-          src="./src/assets/search-icon.png"
+          src="./src/assets/search-icon.svg"
           alt="search"
           className="footer-icon"
         />
@@ -22,7 +22,7 @@ const Footer = () => {
       </Link>
       <Link to="/coming-soon">
         <img
-          src="./src/assets/coming-soon-icon.png"
+          src="./src/assets/coming-soon-icon.svg"
           alt="coming-soon"
           style={{ width: '22px' }}
         />
@@ -30,7 +30,7 @@ const Footer = () => {
       </Link>
       <Link to="/my-list">
         <img
-          src="./src/assets/mylist-icon.png"
+          src="./src/assets/mylist-icon.svg"
           alt="my-list"
           style={{ width: '22px', marginBottom: '3px' }}
         />
