@@ -29,15 +29,11 @@
 .Dropdown {
   padding: 5px;
   margin: 5px;
-  width: 105px;
+
   position: relative;
   cursor: pointer;
   color: #fff;
   font-size: 17.2px;
-}
-
-.Dropdown:hover {
-  font-weight: bold;
 }
 
 .Dropdown span {

@@ -1,55 +1,42 @@
+import React, { useState, useEffect } from 'react';
+import { instance } from '../../api/axios';
 import './Row.css';
-import { useMovieData } from '../../hooks/useMovieData';
 
-const baseImageUrl = 'http://image.tmdb.org/t/p/original/';
+export default function Row({ title, fetchUrl }) {
+  const [items, setItems] = useState([]);
 
-export default function Row({ title, fetchUrl, isLargeRow, id }) {
-  const { data: movies, loading, error } = useMovieData(fetchUrl);
-
-  if (loading) return <p>Loading {title}...</p>;
-  if (error)
-    return (
-      <p>
-        Error loading {title}: {error.message}
-      </p>
-    );
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await instance.get(fetchUrl);
+        const data = res.data.results || [];
+        const filtered = data.filter((item) => item.poster_path); // poster_path가 있는 것만
+        const mapped = filtered.map((item) => ({
+          id: item.id,
+          title: item.title || item.name,
+          poster: `https://image.tmdb.org/t/p/w300${item.poster_path}`,
+        }));
+        setItems(mapped);
+      } catch (err) {
+        console.error(`Row fetch 실패: ${title}`, err);
+      }
+    };
+    fetchData();
+  }, [fetchUrl, title]);
 
   return (
-    <section className="row-container">
-      <h2>{title}</h2>
-      <div className="slider">
-        {/* <div className='slider__arrow slider__arrow-left'>
-            <span 
-              className='arrow'
-              onClick={() => {
-                document.getElementById(id).scrollLeft -= window.innerWidth - 80;
-              }}
-            >
-                {"<"}
-            </span>
-        </div> */}
-        <div id={id} className="row__posters">
-          {movies.map((movie) => (
-            <img
-              key={movie.id}
-              className={`row__poster ${isLargeRow && 'row__posterLarge'}`}
-              src={`${baseImageUrl}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
-              loading="lazy"
-              alt={movie.name || movie.title}
-            />
-          ))}
-        </div>
-        {/* <div className='slider__arrow slider__arrow-right'>
-            <span 
-              className='arrow'
-              onClick={() => {
-                document.getElementById(id).scrollLeft += window.innerWidth - 80;
-              }}
-            >
-                {">"}
-            </span>
-        </div> */}
+    <div className="row">
+      <h2 className="row-title">{title}</h2>
+      <div className="row-posters">
+        {items.map((item) => (
+          <img
+            key={item.id}
+            className="row-poster"
+            src={item.poster}
+            alt={item.title}
+          />
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

@@ -5,6 +5,7 @@ import Movies from '../pages/Movies/Movies.jsx';
 import Search from '../pages/Search/Search';
 import ComingSoon from '../pages/ComingSoon/ComingSoon';
 import MainLayout from '../layouts/MainLayout';
+import GenrePage from '../pages/Genre/Genre';
 import MyList from '../pages/MyList/MyList.jsx';
 import { MyListProvider } from '../pages/MyList/MyListContext.jsx';
 
@@ -17,6 +18,7 @@ const AppRoutes = () => {
             <Route path="/" element={<Home />} />
             <Route path="/tv-shows" element={<TVShows />} />
             <Route path="/movies" element={<Movies />} />
+            <Route path="/:mediaType/:genreName" element={<GenrePage />} />
             <Route path="/search" element={<Search />} />
             <Route path="/coming-soon" element={<ComingSoon />} />
             <Route path="/my-list" element={<MyList />} />

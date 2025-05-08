@@ -9,6 +9,7 @@ import DetailModal from './components/DetailModal/DetailModal';
 import MainPage from './pages/MainPage';
 import { BrowserRouter, Outlet, Routes, Route } from 'react-router-dom';
 import MyList from './pages/MyList/MyList';
+import Category from './pages/Category/Category';
 
 function Main({ openModal }) {
   return (
@@ -22,6 +23,7 @@ function Main({ openModal }) {
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
+  const [selectedProfile, setSelectedProfile] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -34,6 +36,9 @@ function App() {
   const handleIntroClick = () => {
     setShowIntro(false);
   };
+  const handleProfileSelect = (profile) => {
+    setSelectedProfile(profile);
+  };
 
   return (
     <>
@@ -41,6 +46,8 @@ function App() {
         <div onClick={handleIntroClick}>
           <Intro />
         </div>
+      ) : !selectedProfile ? (
+        <Category onProfileSelect={handleProfileSelect} />
       ) : (
         <AppRoutes />
       )}
