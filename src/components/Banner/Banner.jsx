@@ -5,12 +5,33 @@ import { requests } from '../../api/requests';
 import MyListIcon from '../../assets/modal-mylist-icon.png';
 import PlayIcon from '../../assets/play-icon.png';
 import InfoIcon from '../../assets/info-icon.png';
+import { useMyList } from '../../pages/MyList/MyListContext';
 
 export default function Banner({ onPreviewClick, onInfoClick }) {
   const [rawMovies, setRawMovies] = useState([]);
   const [rawTVs, setRawTVs] = useState([]);
   const [previews, setPreviews] = useState([]);
   const [content, setContent] = useState(null);
+
+  const { addToMyList, removeFromMyList, isInMyList } = useMyList();
+
+  const contentInMyList = content ? isInMyList(content.id) : false;
+
+  const handleMyListClick = () => {
+    if (!content) return;
+
+    if (contentInMyList) {
+      removeFromMyList(content.id);
+    } else {
+      addToMyList({
+        id: content.id,
+        title: content.title || content.name,
+        image: `https://image.tmdb.org/t/p/original${content.poster_path}`,
+        media_type: content.media_type,
+        genre_ids: content.genre_ids,
+      });
+    }
+  };
 
   useEffect(() => {
     const fetchMixedContent = async () => {
@@ -123,8 +144,15 @@ export default function Banner({ onPreviewClick, onInfoClick }) {
       />
       <div className="banner_contents">
         <div className="banner_buttons">
-          <div className="banner_mylist">
-            <img src={MyListIcon} alt="My List" className="button_icon" />
+          <div
+            className={`banner_mylist ${contentInMyList ? 'active' : ''}`}
+            onClick={handleMyListClick}
+          >
+            <img
+              src={MyListIcon}
+              alt="My List"
+              className={`button_icon ${contentInMyList ? 'active' : ''}`}
+            />
             <p>My List</p>
           </div>
           <div className="banner_play">

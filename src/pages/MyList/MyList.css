@@ -1,0 +1,94 @@
+.mylist-page {
+  padding: 10px;
+  min-height: 100vh;
+  background-color: #141414;
+  color: white;
+}
+
+.empty-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: #999;
+}
+
+.mylist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.mylist-item {
+  transition: transform 0.3s ease;
+}
+
+.mylist-item:hover {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.poster-container {
+  position: relative;
+}
+
+.poster {
+  width: 110px;
+  height: 160px;
+  border-radius: 4px;
+}
+
+.item-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.poster-container:hover .item-overlay {
+  opacity: 1;
+}
+
+.item-overlay h3 {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.remove-button {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.remove-button:hover {
+  background-color: #f40612;
+}
+
+/* .banner_mylist.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+} */
+
+.button_icon {
+  transition: transform 0.3s ease;
+}
+
+.button_icon.active {
+  transform: rotate(45deg);
+}
+
+.icon-image {
+  transition: transform 0.3s ease;
+}
+
+.icon-image.active {
+  transform: rotate(45deg);
+}
