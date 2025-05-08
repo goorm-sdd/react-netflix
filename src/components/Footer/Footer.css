@@ -12,7 +12,7 @@
 .Footer > a {
   background-color: black;
   text-decoration: none;
-  color: rgb(159, 159, 159);
+  color: gray;
   padding: 5px;
   margin: 5px;
   cursor: pointer;
