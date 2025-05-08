@@ -4,7 +4,7 @@ import './Logo.css';
 const Logo = () => {
   return (
     <Link to="/">
-      <img src="./src/assets/netflix-icon.png" alt="Netflix" className="Logo" />
+      <img src="./src/assets/netflix-icon.svg" alt="Netflix" className="Logo" />
     </Link>
   );
 };

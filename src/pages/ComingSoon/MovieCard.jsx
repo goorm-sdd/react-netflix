@@ -36,7 +36,7 @@ export default function MovieCard({ movie }) {
         <div className="movie-buttons">
           <div className="movie-button-remindme">
             <img
-              src="src/assets/notification-icon.png"
+              src="src/assets/notification-icon.svg"
               alt="Remind Me"
               className="remindme-icon-img"
             />
@@ -44,7 +44,7 @@ export default function MovieCard({ movie }) {
           </div>
           <div className="movie-button-share">
             <img
-              src="src/assets/modal-share-icon.png"
+              src="src/assets/modal-share-icon.svg"
               alt="Share"
               className="movie-icon-img"
             />

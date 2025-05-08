@@ -2,8 +2,8 @@ import './detail-modal.css';
 import { useEffect, useState } from 'react';
 import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
-import MyListIcon from '../../assets/modal-mylist-icon.png';
-import ShareIcon from '../../assets/modal-share-icon.png';
+import MyListIcon from '../../assets/modal-mylist-icon.svg';
+import ShareIcon from '../../assets/modal-share-icon.svg';
 import { useMyList } from '../../pages/MyList/MyListContext';
 
 export default function DetailModal({ isOpen, onClose, movieId, movieType }) {
