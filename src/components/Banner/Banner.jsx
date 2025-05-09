@@ -1,4 +1,4 @@
-import './banner.css';
+import './Banner.css';
 import { useEffect, useState, useMemo } from 'react';
 import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
