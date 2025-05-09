@@ -2,9 +2,9 @@ import './Banner.css';
 import { useEffect, useState, useMemo } from 'react';
 import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
-import MyListIcon from '../../assets/modal-mylist-icon.svg';
-import PlayIcon from '../../assets/play-icon.svg';
-import InfoIcon from '../../assets/info-icon.svg';
+import MyListIcon from '../../assets/icon-mylist.svg';
+import PlayIcon from '../../assets/icon-modal-play.svg';
+import InfoIcon from '../../assets/icon-info.svg';
 import { useMyList } from '../../pages/MyList/MyListContext';
 
 const Banner = ({ onInfoClick }) => {

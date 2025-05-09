@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { instance } from '../../api/axios';
 import './ComingSoon.css';
+import ShareIcon from '../../assets/icon-share.svg';
+import RemindIcon from '../../assets/icon-notification.svg';
 
 export default function MovieCard({ movie }) {
   const [genres, setGenres] = useState([]);
@@ -36,18 +38,14 @@ export default function MovieCard({ movie }) {
         <div className="movie-buttons">
           <div className="movie-button-remindme">
             <img
-              src="src/assets/notification-icon.svg"
+              src={RemindIcon}
               alt="Remind Me"
               className="remindme-icon-img"
             />
             <span>Remind Me</span>
           </div>
           <div className="movie-button-share">
-            <img
-              src="src/assets/modal-share-icon.svg"
-              alt="Share"
-              className="movie-icon-img"
-            />
+            <img src={ShareIcon} alt="Share" className="movie-icon-img" />
             <span>Share</span>
           </div>
         </div>

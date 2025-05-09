@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
 import { useMyList } from '../../pages/MyList/MyListContext';
-import MyListIcon from '../../assets/modal-mylist-icon.svg';
-import ShareIcon from '../../assets/modal-share-icon.svg';
+import MyListIcon from '../../assets/icon-mylist-plus.svg';
+import ShareIcon from '../../assets/icon-share.svg';
 
 const DetailModal = (props) => {
   const { isOpen, onClose, movieId, movieType } = props;

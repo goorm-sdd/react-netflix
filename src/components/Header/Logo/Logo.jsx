@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import './Logo.css';
+import LogoIcon from '../../../assets/s-logo.svg';
 
 const Logo = () => {
   return (
     <Link to="/">
-      <img src="./src/assets/netflix-icon.svg" alt="Netflix" className="Logo" />
+      <img src={LogoIcon} alt="Netflix" className="Logo" />
     </Link>
   );
 };

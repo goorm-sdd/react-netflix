@@ -1,5 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
 import './Footer.css';
+import HomeIcon from '../../assets/icon-home.svg';
+import SearchIcon from '../../assets/icon-search.svg';
+import ComigSoonIcon from '../../assets/icon-coming-soon.svg';
+import MylistIcon from '../../assets/icon-mylist.svg';
 
 const Footer = () => {
   const location = useLocation();
@@ -8,7 +12,7 @@ const Footer = () => {
     <footer className="Footer">
       <Link to="/">
         <img
-          src="./src/assets/home-icon.svg"
+          src={HomeIcon}
           alt="home"
           className={`footer-icon ${location.pathname === '/' ? 'active' : ''}`}
         />
@@ -16,7 +20,7 @@ const Footer = () => {
       </Link>
       <Link to="/search">
         <img
-          src="./src/assets/search-icon.svg"
+          src={SearchIcon}
           alt="search"
           className={`footer-icon ${location.pathname === '/search' ? 'active' : ''}`}
         />
@@ -26,7 +30,7 @@ const Footer = () => {
       </Link>
       <Link to="/coming-soon">
         <img
-          src="./src/assets/coming-soon-icon.svg"
+          src={ComigSoonIcon}
           alt="coming-soon"
           style={{ width: '22px' }}
           className={`footer-icon ${location.pathname === '/coming-soon' ? 'active' : ''}`}
@@ -37,7 +41,7 @@ const Footer = () => {
       </Link>
       <Link to="/my-list">
         <img
-          src="./src/assets/mylist-icon.svg"
+          src={MylistIcon}
           alt="my-list"
           style={{ width: '22px', marginBottom: '3px' }}
           className={`footer-icon ${location.pathname === '/my-list' ? 'active' : ''}`}
