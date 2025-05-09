@@ -1,4 +1,4 @@
-import './detail-modal.css';
+import './DetailModal.css';
 import { useEffect, useState } from 'react';
 import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
