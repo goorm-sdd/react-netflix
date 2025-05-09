@@ -1,4 +1,4 @@
-import './banner.css';
+import './Banner.css';
 import { useEffect, useState, useMemo } from 'react';
 import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
@@ -7,14 +7,13 @@ import PlayIcon from '../../assets/play-icon.svg';
 import InfoIcon from '../../assets/info-icon.svg';
 import { useMyList } from '../../pages/MyList/MyListContext';
 
-export default function Banner({ onInfoClick }) {
+const Banner = ({ onInfoClick }) => {
   const [rawMovies, setRawMovies] = useState([]);
   const [rawTVs, setRawTVs] = useState([]);
   const [previews, setPreviews] = useState([]);
   const [content, setContent] = useState(null);
 
   const { addToMyList, removeFromMyList, isInMyList } = useMyList();
-
   const contentInMyList = content ? isInMyList(content.id) : false;
 
   const handleMyListClick = () => {
@@ -187,4 +186,6 @@ export default function Banner({ onInfoClick }) {
       </div>
     </div>
   );
-}
+};
+
+export default Banner;
