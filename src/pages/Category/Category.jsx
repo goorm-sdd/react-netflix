@@ -1,24 +1,29 @@
 import React from 'react';
 import './Category.css';
+import ProfileIcon from '../../assets/icon-profile.svg';
 
 const Category = ({ onProfileSelect }) => {
   const profiles = [
-    { name: 'Emenalo', image: './src/assets/netflix-profile-blue.svg' },
-    { name: 'Onyeka', image: './src/assets/netflix-profile-yellow.svg' },
-    { name: 'Thelma', image: './src/assets/netflix-profile-red.svg' },
-    { name: 'Sumdeep', image: './src/assets/netflix-profile-green.svg' },
+    { name: 'Emenalo', color: 'blue' },
+    { name: 'Onyeka', color: 'yellow' },
+    { name: 'Thelma', color: 'red' },
+    { name: 'Sumdeep', color: 'green' },
   ];
   return (
     <div className="category-container">
       <img
-        src="./src/assets/netflix-logo-icon.svg"
+        src="./src/assets/logo.svg"
         alt="Netflix Logo"
         className="netflix-logo-category"
       />
       <div className="profiles">
         {profiles.map((profile, idx) => (
           <div key={idx} className="profile" onClick={onProfileSelect}>
-            <img src={profile.image} alt={profile.name} />
+            <img
+              src={ProfileIcon}
+              alt={profile.name}
+              className={`profile-icon ${profile.color}`}
+            />
             <p>{profile.name}</p>
           </div>
         ))}
