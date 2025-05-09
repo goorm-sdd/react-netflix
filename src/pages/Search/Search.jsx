@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useMovieData } from '../../hooks/useMovieData';
 import { requests } from '../../api/requests';
 import './Search.css';
+import DetailModal from '../../components/DetailModal/DetailModal';
 
 const Search = () => {
   const [query, setQuery] = useState('');
@@ -9,6 +10,16 @@ const Search = () => {
   const [debouncedQuery, setDebouncedQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [submittedQuery, setSubmittedQuery] = useState(null); // 실제 검색 실행 후 보여줄 쿼리
+
+  const [selectedId, setSelectedId] = useState(null);
+  const [selectedType, setSelectedType] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = (id, type) => {
+    setSelectedId(id);
+    setSelectedType(type);
+    setIsOpen(true);
+  };
 
   // 디바운싱
   useEffect(() => {
@@ -49,6 +60,12 @@ const Search = () => {
 
   return (
     <div className="search-container">
+      <DetailModal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        movieId={selectedId}
+        movieType={selectedType}
+      />
       <form
         onSubmit={handleSubmit}
         role="search"
@@ -88,7 +105,16 @@ const Search = () => {
             <ul className="thumbnail-container">
               {results.map((item) => (
                 <li key={item.id}>
-                  <div className="thumbnail-item">
+                  <div
+                    className="thumbnail-item"
+                    onClick={() =>
+                      openModal(
+                        item.id,
+                        item.media_type || (item.title ? 'movie' : 'tv'),
+                      )
+                    }
+                    style={{ cursor: 'pointer' }}
+                  >
                     <img
                       src={
                         item.poster_path
@@ -114,7 +140,16 @@ const Search = () => {
               <ul className="thumbnail-container">
                 {topRated.slice(0, 10).map((item) => (
                   <li key={item.id}>
-                    <div className="thumbnail-item">
+                    <div
+                      className="thumbnail-item"
+                      onClick={() =>
+                        openModal(
+                          item.id,
+                          item.media_type || (item.title ? 'movie' : 'tv'),
+                        )
+                      }
+                      style={{ cursor: 'pointer' }}
+                    >
                       <img
                         src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
                         alt={item.title || item.name}

@@ -16,7 +16,7 @@ const TVShows = () => {
   };
   return (
     <>
-      <Banner onPreviewClick={openModal} onInfoClick={openModal} />
+      <Banner onInfoClick={openModal} />
       <DetailModal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
@@ -27,11 +27,28 @@ const TVShows = () => {
         <Row
           title="Action & Adventure TV"
           fetchUrl={requests.fetchActionAdventureTV}
+          onInfoClick={openModal}
         />
-        <Row title="Comedy TV" fetchUrl={requests.fetchComedyTV} />
-        <Row title="Documentary TV" fetchUrl={requests.fetchDocumentaryTV} />
-        <Row title="Drama TV" fetchUrl={requests.fetchDramaTV} />
-        <Row title="Reality TV" fetchUrl={requests.fetchRealityTV} />
+        <Row
+          title="Comedy TV"
+          fetchUrl={requests.fetchComedyTV}
+          onInfoClick={openModal}
+        />
+        <Row
+          title="Documentary TV"
+          fetchUrl={requests.fetchDocumentaryTV}
+          onInfoClick={openModal}
+        />
+        <Row
+          title="Drama TV"
+          fetchUrl={requests.fetchDramaTV}
+          onInfoClick={openModal}
+        />
+        <Row
+          title="Reality TV"
+          fetchUrl={requests.fetchRealityTV}
+          onInfoClick={openModal}
+        />
       </div>
     </>
   );

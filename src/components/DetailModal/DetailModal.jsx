@@ -1,12 +1,13 @@
-import './detail-modal.css';
+import './DetailModal.css';
 import { useEffect, useState } from 'react';
 import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
+import { useMyList } from '../../pages/MyList/MyListContext';
 import MyListIcon from '../../assets/modal-mylist-icon.svg';
 import ShareIcon from '../../assets/modal-share-icon.svg';
-import { useMyList } from '../../pages/MyList/MyListContext';
 
-export default function DetailModal({ isOpen, onClose, movieId, movieType }) {
+const DetailModal = (props) => {
+  const { isOpen, onClose, movieId, movieType } = props;
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
@@ -46,7 +47,6 @@ export default function DetailModal({ isOpen, onClose, movieId, movieType }) {
   }, [isOpen, movieId, movieType]);
 
   const { addToMyList, removeFromMyList, isInMyList } = useMyList();
-
   const inMyList = movieId ? isInMyList(movieId) : false;
 
   const handleMyListClick = () => {
@@ -95,4 +95,6 @@ export default function DetailModal({ isOpen, onClose, movieId, movieType }) {
       </div>
     </div>
   );
-}
+};
+
+export default DetailModal;
