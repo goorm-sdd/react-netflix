@@ -7,7 +7,7 @@ import PlayIcon from '../../assets/play-icon.svg';
 import InfoIcon from '../../assets/info-icon.svg';
 import { useMyList } from '../../pages/MyList/MyListContext';
 
-export default function Banner({ onPreviewClick, onInfoClick }) {
+export default function Banner({ onInfoClick }) {
   const [rawMovies, setRawMovies] = useState([]);
   const [rawTVs, setRawTVs] = useState([]);
   const [previews, setPreviews] = useState([]);
@@ -172,14 +172,14 @@ export default function Banner({ onPreviewClick, onInfoClick }) {
             <p>Previews</p>
           </div>
           <div className="banner_previews_container">
-            {previews.map((item) => (
+            {previews.map((content) => (
               <div
                 className="preview_item"
-                key={item.id}
-                onClick={() => onPreviewClick(item.id, item.media_type)}
+                key={content.id}
+                onClick={() => onInfoClick(content.id, content.media_type)}
                 style={{ cursor: 'pointer' }}
               >
-                <img src={item.image} alt={item.title} />
+                <img src={content.image} alt={content.title} />
               </div>
             ))}
           </div>

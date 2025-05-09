@@ -15,7 +15,7 @@ function Main({ openModal }) {
   return (
     <>
       <Intro />
-      <Banner onPreviewClick={openModal} onInfoClick={openModal} />
+      <Banner onInfoClick={openModal} />
       <MainPage />
     </>
   );
