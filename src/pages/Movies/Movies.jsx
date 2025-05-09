@@ -16,7 +16,7 @@ const Movies = () => {
   };
   return (
     <>
-      <Banner onPreviewClick={openModal} onInfoClick={openModal} />
+      <Banner onInfoClick={openModal} />
       <DetailModal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
