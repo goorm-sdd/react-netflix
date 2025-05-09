@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { instance } from '../../api/axios';
 import './Row.css';
 
-export default function Row({ title, fetchUrl }) {
+export default function Row({ title, fetchUrl, onInfoClick }) {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -15,6 +15,7 @@ export default function Row({ title, fetchUrl }) {
           id: item.id,
           title: item.title || item.name,
           poster: `https://image.tmdb.org/t/p/w300${item.poster_path}`,
+          media_type: item.media_type || (item.title ? 'movie' : 'tv'),
         }));
         setItems(mapped);
       } catch (err) {
@@ -34,6 +35,8 @@ export default function Row({ title, fetchUrl }) {
             className="row-poster"
             src={item.poster}
             alt={item.title}
+            onClick={() => onInfoClick(item.id, item.media_type)}
+            style={{ cursor: 'pointer' }}
           />
         ))}
       </div>
