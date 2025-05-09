@@ -27,12 +27,33 @@ const Movies = () => {
         <Row
           title="Netflix Originals"
           fetchUrl={requests.fetchNetflixOriginals}
+          onInfoClick={openModal}
         />
-        <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} />
-        <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
-        <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
-        <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies} />
-        <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
+        <Row
+          title="Action Movies"
+          fetchUrl={requests.fetchActionMovies}
+          onInfoClick={openModal}
+        />
+        <Row
+          title="Comedy Movies"
+          fetchUrl={requests.fetchComedyMovies}
+          onInfoClick={openModal}
+        />
+        <Row
+          title="Horror Movies"
+          fetchUrl={requests.fetchHorrorMovies}
+          onInfoClick={openModal}
+        />
+        <Row
+          title="Romance Movies"
+          fetchUrl={requests.fetchRomanceMovies}
+          onInfoClick={openModal}
+        />
+        <Row
+          title="Documentaries"
+          fetchUrl={requests.fetchDocumentaries}
+          onInfoClick={openModal}
+        />
       </div>
     </>
   );
