@@ -7,8 +7,8 @@ const Genre = () => {
   const { mediaType, genreName } = useParams();
 
   return (
-    <div className="genre-page">
-      <div className="grid-container">
+    <div className="genre_page">
+      <div className="grid_container">
         <GridContent mediaType={mediaType} genreName={genreName} />
       </div>
     </div>

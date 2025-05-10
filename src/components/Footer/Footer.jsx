@@ -9,12 +9,12 @@ const Footer = () => {
   const location = useLocation();
 
   return (
-    <footer className="Footer">
+    <footer className="footer">
       <Link to="/">
         <img
           src={HomeIcon}
           alt="home"
-          className={`footer-icon ${location.pathname === '/' ? 'active' : ''}`}
+          className={`footer_icon ${location.pathname === '/' ? 'active' : ''}`}
         />
         <div className={location.pathname === '/' ? 'active' : ''}>Home</div>
       </Link>
@@ -22,7 +22,7 @@ const Footer = () => {
         <img
           src={SearchIcon}
           alt="search"
-          className={`footer-icon ${location.pathname === '/search' ? 'active' : ''}`}
+          className={`footer_icon ${location.pathname === '/search' ? 'active' : ''}`}
         />
         <div className={location.pathname === '/search' ? 'active' : ''}>
           Search
@@ -33,7 +33,7 @@ const Footer = () => {
           src={ComigSoonIcon}
           alt="coming-soon"
           style={{ width: '22px' }}
-          className={`footer-icon ${location.pathname === '/coming-soon' ? 'active' : ''}`}
+          className={`footer_icon ${location.pathname === '/coming-soon' ? 'active' : ''}`}
         />
         <div className={location.pathname === '/coming-soon' ? 'active' : ''}>
           Coming Soon
@@ -44,7 +44,7 @@ const Footer = () => {
           src={MylistIcon}
           alt="my-list"
           style={{ width: '22px', marginBottom: '3px' }}
-          className={`footer-icon ${location.pathname === '/my-list' ? 'active' : ''}`}
+          className={`footer_icon ${location.pathname === '/my-list' ? 'active' : ''}`}
         />
         <div className={location.pathname === '/my-list' ? 'active' : ''}>
           My List
