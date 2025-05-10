@@ -1,7 +1,7 @@
 import './Header.css';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import Logo from './Logo/Logo';
-import BlackScreen from '../BlackScreen/BlackScreen';
+import Navigation from '../Navigation/Navigation';
 
 const Header = () => {
   const location = useLocation();
@@ -38,11 +38,11 @@ const Header = () => {
       <Logo />
       {isTVShowsPage && (
         <>
-          <BlackScreen
+          <Navigation
             title="TV Shows"
             items={['TV Shows', 'Movies', 'My List']}
           />
-          <BlackScreen
+          <Navigation
             title="All Genres"
             items={[
               {
@@ -59,11 +59,11 @@ const Header = () => {
       )}
       {isMoviesPage && (
         <>
-          <BlackScreen
+          <Navigation
             title="Movies"
             items={['TV Shows', 'Movies', 'My List']}
           />
-          <BlackScreen
+          <Navigation
             title="All Genres"
             items={[
               { label: 'Netflix Originals', path: '/movies/netflix-originals' },
@@ -87,7 +87,7 @@ const Header = () => {
       )}
       {isListPage && (
         <>
-          <BlackScreen
+          <Navigation
             title="My List"
             items={['TV Shows', 'Movies', 'My List']}
           />
@@ -95,7 +95,7 @@ const Header = () => {
       )}
       {isGenrePage && (
         <>
-          <BlackScreen
+          <Navigation
             title={getGenreTitle()}
             items={
               location.pathname.includes('/movies/')

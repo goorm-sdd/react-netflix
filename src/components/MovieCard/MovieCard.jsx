@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { instance } from '../../services/api';
-import './ComingSoon.css';
 import ShareIcon from '../../assets/icon-share.svg';
 import RemindIcon from '../../assets/icon-notification.svg';
+import './MovieCard.css';
 
-export default function MovieCard({ movie }) {
+const MovieCard = ({ movie }) => {
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
@@ -27,38 +27,38 @@ export default function MovieCard({ movie }) {
   };
 
   return (
-    <div className="movie-card">
+    <div className="movie_card">
       <img
-        className="movie-image"
+        className="movie_image"
         src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path || movie.poster_path}`}
         alt={movie.title}
       />
 
-      <div className="movie-info">
-        <div className="movie-buttons">
-          <div className="movie-button-remindme">
+      <div className="movie_info">
+        <div className="movie_buttons">
+          <div className="movie_button_remindme">
             <img
               src={RemindIcon}
               alt="Remind Me"
-              className="remindme-icon-img"
+              className="remindme_icon_img"
             />
             <span>Remind Me</span>
           </div>
-          <div className="movie-button-share">
-            <img src={ShareIcon} alt="Share" className="movie-icon-img" />
+          <div className="movie_button_share">
+            <img src={ShareIcon} alt="Share" className="movie_icon_img" />
             <span>Share</span>
           </div>
         </div>
 
-        <div className="movie-meta">
+        <div className="movie_meta">
           <p className="release">
             Coming {formatReleaseDate(movie.release_date)}
           </p>
-          <h2 className="movie-title">{movie.title}</h2>
-          <p className="movie-overview">{movie.overview}</p>
-          <div className="movie-genres">
+          <h2 className="movie_title">{movie.title}</h2>
+          <p className="movie_overview">{movie.overview}</p>
+          <div className="movie_genres">
             {genres.map((genre, index) => (
-              <span key={genre.id} className="genre-item">
+              <span key={genre.id} className="genre_item">
                 {index > 0 && <span className="dot"> • </span>}
                 {genre.name}
               </span>
@@ -68,4 +68,5 @@ export default function MovieCard({ movie }) {
       </div>
     </div>
   );
-}
+};
+export default MovieCard;

@@ -1,27 +1,10 @@
 import { useState, useEffect } from 'react';
-import './App.css';
 import AppRoutes from './routes/AppRoutes';
 import Intro from './pages/Intro/Intro';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import Banner from './components/Banner/Banner';
-import DetailModal from './components/DetailModal/DetailModal';
-import Feed from './components/Feed/Feed';
-import { BrowserRouter, Outlet, Routes, Route } from 'react-router-dom';
-import MyList from './pages/MyList/MyList';
 import Category from './pages/Category/Category';
+import './App.css';
 
-function Main({ openModal }) {
-  return (
-    <>
-      <Intro />
-      <Banner onInfoClick={openModal} />
-      <Feed />
-    </>
-  );
-}
-
-function App() {
+const App = () => {
   const [showIntro, setShowIntro] = useState(true);
   const [selectedProfile, setSelectedProfile] = useState(false);
 
@@ -53,6 +36,6 @@ function App() {
       )}
     </>
   );
-}
+};
 
 export default App;

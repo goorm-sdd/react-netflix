@@ -4,7 +4,7 @@ import { instance } from '../../services/api';
 import { requests } from '../../services/requests';
 import DetailModal from '../DetailModal/DetailModal';
 
-const EachTVGenrePage = () => {
+const GridTV = () => {
   const { genreName } = useParams();
   const [tvShows, setTVShows] = useState([]);
   const [page, setPage] = useState(1);
@@ -138,4 +138,4 @@ const EachTVGenrePage = () => {
   );
 };
 
-export default EachTVGenrePage;
+export default GridTV;

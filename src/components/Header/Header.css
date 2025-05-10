@@ -22,7 +22,11 @@
   font-size: 17.2px;
 }
 
-.Dropdown {
+.Header-link:hover {
+  text-decoration: underline;
+}
+
+.navigation {
   padding: 5px;
   margin: 5px;
   position: relative;
@@ -31,14 +35,14 @@
   font-size: 17.2px;
 }
 
-.Dropdown:hover {
+.navigation:hover {
   text-decoration: underline;
 }
-.Dropdown span {
+.navigation span {
   font-size: 13px;
 }
 
-.Dropdown-menu {
+.navigation_menu {
   position: fixed;
   top: 0;
   left: 0;
@@ -53,31 +57,27 @@
   z-index: 9999;
 }
 
-.Dropdown-menu div {
+.navigation_menu div {
   margin-bottom: 10px;
   cursor: pointer;
   color: #fff;
   font-size: 24.68px;
 }
-.Dropdown-menu a {
+.navigation_menu a {
   color: gray;
 }
-.Dropdown-menu a:hover {
+.navigation_menu a:hover {
   text-decoration: underline;
   color: white;
 }
-.Dropdown-menu div:hover {
+.navigation_menu div:hover {
   text-decoration: underline;
 }
 
-.Dropdown-close {
+.navigation_close {
   position: absolute;
   bottom: 40px;
   cursor: pointer;
   font-size: 24px;
   color: #fff;
-}
-
-.Header-link:hover {
-  text-decoration: underline;
 }

@@ -1,0 +1,101 @@
+.movie_card {
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+.movie_image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie_info {
+  padding: 12px;
+  background-color: black;
+}
+
+.movie_buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  padding-right: 12px;
+  margin-bottom: 8px;
+}
+
+.movie_button_remindme,
+.movie_button_share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+}
+
+.remindme-icon_img,
+.movie_icon_img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  margin-bottom: 7px;
+}
+
+.movie_button_remindme span,
+.movie_button_share span {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 11.13px;
+}
+
+.movie_meta {
+  text-align: left;
+  padding: 0 0 8px 0;
+}
+
+.release {
+  font-size: 11.4px;
+  line-height: 9px;
+  color: rgba(255, 255, 255, 0.83);
+  margin-bottom: 4px;
+}
+
+.movie_title {
+  font-size: 18.66px;
+  font-weight: bold;
+  line-height: 14px;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.movie_overview {
+  font-size: 11.4px;
+  color: rgba(255, 255, 255, 0.83);
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+}
+
+.movie_genres {
+  font-size: 11.4px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 9px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.genre-item {
+  margin-right: 4px;
+}
+
+.dot {
+  color: #ffffffb0;
+  font-weight: bold;
+  margin: 0 6px;
+}

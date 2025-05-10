@@ -1,24 +1,24 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Dropdown = ({ title, items }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+const Navigation = ({ title, items }) => {
+  const [isNavigationOpen, setIsNavigationOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const toggleNavigation = () => {
+    setIsNavigationOpen(!isNavigationOpen);
   };
 
   const renderItem = (item, index) => {
     if (typeof item === 'string') {
       const path = `/${item.toLowerCase().replace(' ', '-')}`;
       return (
-        <Link to={path} key={index} onClick={toggleDropdown}>
+        <Link to={path} key={index} onClick={toggleNavigation}>
           {item}
         </Link>
       );
     } else {
       return (
-        <Link to={item.path} key={index} onClick={toggleDropdown}>
+        <Link to={item.path} key={index} onClick={toggleNavigation}>
           {item.label}
         </Link>
       );
@@ -27,13 +27,13 @@ const Dropdown = ({ title, items }) => {
 
   return (
     <>
-      <div className="Dropdown" onClick={toggleDropdown}>
+      <div className="navigation" onClick={toggleNavigation}>
         {title} <span>▼</span>
       </div>
-      {isDropdownOpen && (
-        <div className="Dropdown-menu">
+      {isNavigationOpen && (
+        <div className="navigation_menu">
           {items.map((item, index) => renderItem(item, index))}
-          <div className="Dropdown-close" onClick={toggleDropdown}>
+          <div className="navigation_close" onClick={toggleNavigation}>
             ✕
           </div>
         </div>
@@ -42,4 +42,4 @@ const Dropdown = ({ title, items }) => {
   );
 };
 
-export default Dropdown;
+export default Navigation;

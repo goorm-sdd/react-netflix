@@ -1,8 +1,8 @@
-import './DetailModal.css';
 import { useMyList } from '../../context/MyListContext';
 import MyListIcon from '../../assets/icon-mylist-plus.svg';
 import ShareIcon from '../../assets/icon-share.svg';
 import { useDetailData } from '../../hooks/useDetailData';
+import './DetailModal.css';
 
 const DetailModal = ({ isOpen, onClose, movieId, movieType }) => {
   const movie = useDetailData(isOpen, movieId, movieType);
