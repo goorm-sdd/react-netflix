@@ -1,8 +1,8 @@
 import './Banner.css';
 import { useEffect, useState, useMemo } from 'react';
 import { useMixedContentData } from '../../hooks/useMixedContentData';
-import { instance } from '../../api/axios';
-import { requests } from '../../api/requests';
+import { instance } from '../../services/api';
+import { requests } from '../../services/requests';
 import MyListIcon from '../../assets/icon-mylist-plus.svg';
 import PlayIcon from '../../assets/icon-modal-play.svg';
 import InfoIcon from '../../assets/icon-info.svg';

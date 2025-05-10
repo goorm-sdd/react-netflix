@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import { instance } from '../../api/axios';
-import { requests } from '../../api/requests';
+import { instance } from '../../services/api';
+import { requests } from '../../services/requests';
 import DetailModal from '../DetailModal/DetailModal';
 
 const EachMovieGenrePage = () => {

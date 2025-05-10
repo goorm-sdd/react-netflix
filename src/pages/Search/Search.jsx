@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useMovieData } from '../../hooks/useMovieData';
-import { requests } from '../../api/requests';
+import { requests } from '../../services/requests';
 import './Search.css';
 import DetailModal from '../../components/DetailModal/DetailModal';
 
