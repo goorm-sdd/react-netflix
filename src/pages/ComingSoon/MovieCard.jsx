@@ -4,7 +4,7 @@ import './ComingSoon.css';
 import ShareIcon from '../../assets/icon-share.svg';
 import RemindIcon from '../../assets/icon-notification.svg';
 
-export default function MovieCard({ movie }) {
+const MovieCard = ({ movie }) => {
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
@@ -68,4 +68,5 @@ export default function MovieCard({ movie }) {
       </div>
     </div>
   );
-}
+};
+export default MovieCard;
