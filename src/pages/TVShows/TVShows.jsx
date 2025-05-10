@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Banner from '../../components/Banner/Banner';
 import DetailModal from '../../components/DetailModal/DetailModal';
-import Row from '../../components/Row/Row';
-import { requests } from '../../api/requests';
+import RowMovie from '../../components/RowMovie/RowMovie';
+import { requests } from '../../services/requests';
 
 const TVShows = () => {
   const [selectedId, setSelectedId] = useState(null);
@@ -24,27 +24,27 @@ const TVShows = () => {
         movieType={selectedType}
       />
       <div className="movies-container">
-        <Row
+        <RowMovie
           title="Action & Adventure TV"
           fetchUrl={requests.fetchActionAdventureTV}
           onInfoClick={openModal}
         />
-        <Row
+        <RowMovie
           title="Comedy TV"
           fetchUrl={requests.fetchComedyTV}
           onInfoClick={openModal}
         />
-        <Row
+        <RowMovie
           title="Documentary TV"
           fetchUrl={requests.fetchDocumentaryTV}
           onInfoClick={openModal}
         />
-        <Row
+        <RowMovie
           title="Drama TV"
           fetchUrl={requests.fetchDramaTV}
           onInfoClick={openModal}
         />
-        <Row
+        <RowMovie
           title="Reality TV"
           fetchUrl={requests.fetchRealityTV}
           onInfoClick={openModal}

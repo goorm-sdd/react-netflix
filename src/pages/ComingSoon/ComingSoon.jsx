@@ -1,7 +1,7 @@
 import React from 'react';
 import './ComingSoon.css';
 import { useMovieData } from '../../hooks/useMovieData';
-import { requests } from '../../api/requests';
+import { requests } from '../../services/requests';
 import MovieCard from './MovieCard';
 
 export default function ComingSoon() {

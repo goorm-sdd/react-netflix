@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { instance } from '../api/axios';
+import { instance } from '../services/api';
 
 export const useMovieData = (fetchUrl) => {
   const [data, setData] = useState([]);

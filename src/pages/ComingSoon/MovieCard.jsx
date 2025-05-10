@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { instance } from '../../api/axios';
+import { instance } from '../../services/api';
 import './ComingSoon.css';
 import ShareIcon from '../../assets/icon-share.svg';
 import RemindIcon from '../../assets/icon-notification.svg';

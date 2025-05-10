@@ -1,10 +1,10 @@
 import { React, useState } from 'react';
-import { requests } from '../../api/requests';
-import './MainPage.css';
-import Row from '../../components/Row/Row';
+import { requests } from '../../services/requests';
+import RowMovie from '../RowMovie/RowMovie';
 import DetailModal from '../../components/DetailModal/DetailModal';
+import './Feed.css';
 
-export default function MainPage() {
+const Feed = () => {
   const [selectedId, setSelectedId] = useState(null);
   const [selectedType, setSelectedType] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -25,52 +25,52 @@ export default function MainPage() {
         onInfoClick={openModal}
       />
       <div className="main-page">
-        <Row
+        <RowMovie
           title="Netflix Originals"
           fetchUrl={requests.fetchNetflixOriginals}
           onInfoClick={openModal}
         />
-        <Row
+        <RowMovie
           title="Action Movies"
           fetchUrl={requests.fetchActionMovies}
           onInfoClick={openModal}
         />
-        <Row
+        <RowMovie
           title="Comedy Movies"
           fetchUrl={requests.fetchComedyMovies}
           onInfoClick={openModal}
         />
-        <Row
+        <RowMovie
           title="Horror Movies"
           fetchUrl={requests.fetchHorrorMovies}
           onInfoClick={openModal}
         />
-        <Row
+        <RowMovie
           title="Romance Movies"
           fetchUrl={requests.fetchRomanceMovies}
           onInfoClick={openModal}
         />
-        <Row
+        <RowMovie
           title="Documentaries"
           fetchUrl={requests.fetchDocumentaries}
           onInfoClick={openModal}
         />
-        <Row
+        <RowMovie
           title="Action TV"
           fetchUrl={requests.fetchActionAdventureTV}
           onInfoClick={openModal}
         />
-        <Row
+        <RowMovie
           title="Comedy TV"
           fetchUrl={requests.fetchComedyTV}
           onInfoClick={openModal}
         />
-        <Row
+        <RowMovie
           title="Drama TV"
           fetchUrl={requests.fetchDramaTV}
           onInfoClick={openModal}
         />
-        <Row
+        <RowMovie
           title="Reality TV"
           fetchUrl={requests.fetchRealityTV}
           onInfoClick={openModal}
@@ -78,4 +78,5 @@ export default function MainPage() {
       </div>
     </>
   );
-}
+};
+export default Feed;

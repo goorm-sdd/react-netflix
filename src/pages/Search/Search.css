@@ -1,16 +1,16 @@
-.search-container {
+.search_container {
   position: relative;
   margin: 15px auto 0;
 }
-.search-form {
+.search_form {
   position: relative;
   background-color: #424242;
 }
-.search-input-box {
+.search_input_box {
   height: 52px;
   padding-right: 40px;
 }
-.search-input {
+.search_input {
   box-sizing: border-box;
   width: 100%;
   padding: 17px 0 16px 10px;
@@ -20,7 +20,7 @@
   font-size: 16px;
   color: #c4c4c4;
 }
-.btn-submit {
+.btn_submit {
   position: absolute;
   top: 50%;
   right: 10px;
@@ -51,19 +51,19 @@
   background-color: #eee;
 }
 
-.search-container h3 {
+.search_container h3 {
   margin: 20px 10px;
   font-size: 26.75px;
   color: #fff;
 }
 
-.search-container ul {
+.search_container ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.thumbnail-container li {
+.thumbnail_container li {
   overflow: hidden;
   position: relative;
   display: -webkit-box;
@@ -74,17 +74,17 @@
   border-bottom: 2px solid #000;
   background-color: #424242;
 }
-.thumbnail-item {
+.thumbnail_item {
   overflow: hidden;
   width: 35%;
   margin-right: 15px;
 }
-.thumbnail-item img {
+.thumbnail_item img {
   width: 100%;
   vertical-align: top;
 }
 
-.thumbnail-container .item-title {
+.thumbnail_container .item_title {
   position: relative;
   -webkit-box-flex: 1;
   flex: 1;
@@ -93,7 +93,7 @@
   color: #fff;
 }
 
-.thumbnail-container .item-title:after {
+.thumbnail_container .item_title:after {
   content: '';
   position: absolute;
   right: -50px;

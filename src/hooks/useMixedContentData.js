@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { instance } from '../api/axios';
-import { requests } from '../api/requests';
+import { instance } from '../services/api';
+import { requests } from '../services/requests';
 
 export const useMixedContentData = (type = 'all') => {
   const [rawMovies, setRawMovies] = useState([]);

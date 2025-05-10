@@ -6,7 +6,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Banner from './components/Banner/Banner';
 import DetailModal from './components/DetailModal/DetailModal';
-import MainPage from './pages/MainPage';
+import Feed from './components/Feed/Feed';
 import { BrowserRouter, Outlet, Routes, Route } from 'react-router-dom';
 import MyList from './pages/MyList/MyList';
 import Category from './pages/Category/Category';
@@ -16,7 +16,7 @@ function Main({ openModal }) {
     <>
       <Intro />
       <Banner onInfoClick={openModal} />
-      <MainPage />
+      <Feed />
     </>
   );
 }

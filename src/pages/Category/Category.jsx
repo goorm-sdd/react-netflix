@@ -1,6 +1,6 @@
 import React from 'react';
 import './Category.css';
-import ProfileIcon from '../../assets/icon-profile.svg';
+import ProfileIcon from '../../assets/img-profile.svg';
 
 const Category = ({ onProfileSelect }) => {
   const profiles = [
