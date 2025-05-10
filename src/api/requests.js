@@ -5,6 +5,9 @@ export const requests = {
   fetchTrending: '/trending/all/week',
   fetchTopRated: '/movie/top_rated',
 
+  fetchTrendingMovies: '/trending/movie/week',
+  fetchTrendingTV: '/trending/tv/week',
+
   fetchReleaseDates: (movieId) => `/movie/${movieId}/release_dates`,
   fetchWatchlist: (accountId) => `/account/${accountId}/watchlist/movies`,
 
