@@ -1,5 +1,5 @@
 import './DetailModal.css';
-import { useMyList } from '../../pages/MyList/MyListContext';
+import { useMyList } from '../../context/MyListContext';
 import MyListIcon from '../../assets/icon-mylist-plus.svg';
 import ShareIcon from '../../assets/icon-share.svg';
 import { useDetailData } from '../../hooks/useDetailData';

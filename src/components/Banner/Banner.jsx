@@ -6,7 +6,7 @@ import { requests } from '../../services/requests';
 import MyListIcon from '../../assets/icon-mylist-plus.svg';
 import PlayIcon from '../../assets/icon-modal-play.svg';
 import InfoIcon from '../../assets/icon-info.svg';
-import { useMyList } from '../../pages/MyList/MyListContext';
+import { useMyList } from '../../context/MyListContext';
 
 const Banner = ({ onInfoClick, type = 'all' }) => {
   const { rawMovies, rawTVs } = useMixedContentData(type);

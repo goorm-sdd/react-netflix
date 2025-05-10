@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useMyList } from './MyListContext';
+import { useMyList } from '../../context/MyListContext';
 import './MyList.css';
 import DetailModal from '../../components/DetailModal/DetailModal';
 

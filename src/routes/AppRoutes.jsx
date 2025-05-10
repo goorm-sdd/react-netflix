@@ -7,7 +7,7 @@ import ComingSoon from '../pages/ComingSoon/ComingSoon';
 import MainLayout from '../layouts/MainLayout';
 import GenrePage from '../pages/Genre/Genre';
 import MyList from '../pages/MyList/MyList.jsx';
-import { MyListProvider } from '../pages/MyList/MyListContext.jsx';
+import { MyListProvider } from '../context/MyListContext.jsx';
 
 const AppRoutes = () => {
   return (
