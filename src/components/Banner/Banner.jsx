@@ -85,7 +85,7 @@ const Banner = ({ onInfoClick, type = 'all' }) => {
             media_type: item.media_type || (item.title ? 'movie' : 'tv'),
             genre_ids: item.genre_ids,
           }));
-        setPreviews(mapped);
+        setPreviews(mapped.slice(0, 20));
       } catch (err) {
         console.error('프리뷰 콘텐츠 로딩 실패:', err);
       }
