@@ -119,7 +119,7 @@ const Search = () => {
                       src={
                         item.poster_path
                           ? `https://image.tmdb.org/t/p/w200${item.poster_path}`
-                          : './src/assets/no-image.svg'
+                          : './src/assets/img-empty.svg'
                       }
                       alt={item.title || item.name}
                     />
