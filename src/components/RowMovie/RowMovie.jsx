@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { instance } from '../../api/axios';
-import './Row.css';
+import { instance } from '../../services/api';
+import './RowMovie.css';
 
-export default function Row({ title, fetchUrl, onInfoClick }) {
+const RowMovie = ({ title, fetchUrl, onInfoClick }) => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -27,12 +27,12 @@ export default function Row({ title, fetchUrl, onInfoClick }) {
 
   return (
     <div className="row">
-      <h2 className="row-title">{title}</h2>
-      <div className="row-posters">
+      <h2 className="row_title">{title}</h2>
+      <div className="row_posters">
         {items.map((item) => (
           <img
             key={item.id}
-            className="row-poster"
+            className="row_poster"
             src={item.poster}
             alt={item.title}
             onClick={() => onInfoClick(item.id, item.media_type)}
@@ -42,4 +42,5 @@ export default function Row({ title, fetchUrl, onInfoClick }) {
       </div>
     </div>
   );
-}
+};
+export default RowMovie;
