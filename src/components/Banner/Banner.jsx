@@ -8,8 +8,8 @@ import PlayIcon from '../../assets/icon-modal-play.svg';
 import InfoIcon from '../../assets/icon-info.svg';
 import { useMyList } from '../../pages/MyList/MyListContext';
 
-const Banner = ({ onInfoClick }) => {
-  const { rawMovies, rawTVs } = useMixedContent();
+const Banner = ({ onInfoClick, type = 'all' }) => {
+  const { rawMovies, rawTVs } = useMixedContent(type);
   const [previews, setPreviews] = useState([]);
   const [content, setContent] = useState(null);
 
