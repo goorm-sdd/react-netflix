@@ -59,7 +59,7 @@ const Search = () => {
   };
 
   return (
-    <div className="search-container">
+    <div className="search_container">
       <DetailModal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
@@ -70,17 +70,17 @@ const Search = () => {
         onSubmit={handleSubmit}
         role="search"
         method="get"
-        className="search-form"
+        className="search_form"
       >
-        <div className="search-input-box">
+        <div className="search_input_box">
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search for a show, movie, genre, e.t.c."
-            className="search-input"
+            className="search_input"
           />
         </div>
-        <button type="submit" className="btn-submit"></button>
+        <button type="submit" className="btn_submit"></button>
       </form>
       {loading && <div className="loading">Loading...</div>}
       {error && <div className="error">Error: {error.message}</div>}
@@ -100,13 +100,13 @@ const Search = () => {
       {/* 실제 검색 결과 */}
       <>
         {!loading && results?.length > 0 && (
-          <div className="search-results">
+          <div className="search_results">
             <h3>Search Results</h3>
-            <ul className="thumbnail-container">
+            <ul className="thumbnail_container">
               {results.map((item) => (
                 <li key={item.id}>
                   <div
-                    className="thumbnail-item"
+                    className="thumbnail_item"
                     onClick={() =>
                       openModal(
                         item.id,
@@ -124,7 +124,7 @@ const Search = () => {
                       alt={item.title || item.name}
                     />
                   </div>
-                  <p className="item-title">{item.title || item.name}</p>
+                  <p className="item_title">{item.title || item.name}</p>
                 </li>
               ))}
             </ul>
@@ -135,13 +135,13 @@ const Search = () => {
           !submittedQuery &&
           results?.length === 0 &&
           topRated?.length > 0 && (
-            <div className="search-results">
+            <div className="search_results">
               <h3>Top Rated</h3>
-              <ul className="thumbnail-container">
+              <ul className="thumbnail_container">
                 {topRated.slice(0, 10).map((item) => (
                   <li key={item.id}>
                     <div
-                      className="thumbnail-item"
+                      className="thumbnail_item"
                       onClick={() =>
                         openModal(
                           item.id,
@@ -155,7 +155,7 @@ const Search = () => {
                         alt={item.title || item.name}
                       />
                     </div>
-                    <p className="item-title">{item.title || item.name}</p>
+                    <p className="item_title">{item.title || item.name}</p>
                   </li>
                 ))}
               </ul>

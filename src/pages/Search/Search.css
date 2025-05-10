@@ -6,7 +6,7 @@
   position: relative;
   background-color: #424242;
 }
-.search_input-box {
+.search_input_box {
   height: 52px;
   padding-right: 40px;
 }
@@ -84,7 +84,7 @@
   vertical-align: top;
 }
 
-.thumbnail_container .item-title {
+.thumbnail_container .item_title {
   position: relative;
   -webkit-box-flex: 1;
   flex: 1;
@@ -93,7 +93,7 @@
   color: #fff;
 }
 
-.thumbnail_container .item-title:after {
+.thumbnail_container .item_title:after {
   content: '';
   position: absolute;
   right: -50px;
