@@ -1,17 +1,17 @@
-.genre-page {
+.genre_page {
   padding: 20px;
 }
 
-.grid-container {
+.grid_container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
 }
 
-.grid-item {
+.grid_item {
   position: relative;
 }
-.grid-item img {
+.grid_item img {
   width: 100%;
   height: auto;
 }

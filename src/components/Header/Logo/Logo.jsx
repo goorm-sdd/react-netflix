@@ -5,7 +5,7 @@ import LogoIcon from '../../../assets/s-logo.svg';
 const Logo = () => {
   return (
     <Link to="/">
-      <img src={LogoIcon} alt="Netflix" className="Logo" />
+      <img src={LogoIcon} alt="Netflix" className="logo" />
     </Link>
   );
 };

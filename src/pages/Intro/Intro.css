@@ -1,4 +1,4 @@
-.intro-container {
+.intro_container {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,6 +12,6 @@
   cursor: pointer;
 }
 
-.netflix-logo img {
+.netflix_logo img {
   width: 200px;
 }

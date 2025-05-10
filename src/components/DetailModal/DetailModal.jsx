@@ -27,29 +27,29 @@ const DetailModal = ({ isOpen, onClose, movieId, movieType }) => {
   if (!isOpen || !movie) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <img className="modal-poster" src={movie.image} alt={movie.title} />
-        <div className="modal-detail">
-          <div className="modal-buttons">
-            <div className="icon-button" onClick={handleMyListClick}>
+    <div className="modal_overlay" onClick={onClose}>
+      <div className="modal_content" onClick={(e) => e.stopPropagation()}>
+        <img className="modal_poster" src={movie.image} alt={movie.title} />
+        <div className="modal_detail">
+          <div className="modal_buttons">
+            <div className="icon_button" onClick={handleMyListClick}>
               <img
                 src={MyListIcon}
                 alt="My List"
-                className={`icon-image ${inMyList ? 'active' : ''}`}
+                className={`icon_image ${inMyList ? 'active' : ''}`}
               />
               <p>My List</p>
             </div>
-            <div className="icon-button">
-              <img src={ShareIcon} alt="Share" className="icon-image" />
+            <div className="icon_button">
+              <img src={ShareIcon} alt="Share" className="icon_image" />
               <p>Share</p>
             </div>
           </div>
-          <div className="modal-body">
-            <p className="modal-subtitle">{movie.subtitle}</p>
-            <h2 className="modal-title">{movie.title}</h2>
-            <p className="modal-description">{movie.description}</p>
-            <p className="modal-tags">{movie.tags}</p>
+          <div className="modal_body">
+            <p className="modal_subtitle">{movie.subtitle}</p>
+            <h2 className="modal_title">{movie.title}</h2>
+            <p className="modal_description">{movie.description}</p>
+            <p className="modal_tags">{movie.tags}</p>
           </div>
         </div>
       </div>

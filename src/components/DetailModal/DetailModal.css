@@ -1,4 +1,4 @@
-.modal-overlay {
+.modal_overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
   z-index: 999;
 }
 
-.modal-content {
+.modal_content {
   width: 375px;
   height: 481px;
   background-color: #000000;
@@ -23,7 +23,7 @@
   transform: translate(0, 0);
 }
 
-.modal-poster {
+.modal_poster {
   width: 375px;
   height: 195px;
   margin-top: 56px;
@@ -31,12 +31,12 @@
   display: block;
 }
 
-.modal-detail {
+.modal_detail {
   height: 170px;
   padding-top: 20px;
 }
 
-.modal-buttons {
+.modal_buttons {
   height: 40px;
   display: flex;
   justify-content: flex-end;
@@ -44,7 +44,7 @@
   padding: 0 12px;
 }
 
-.icon-button {
+.icon_button {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,35 +52,35 @@
   cursor: pointer;
 }
 
-.icon-image {
+.icon_image {
   width: 24px;
   height: 24px;
   object-fit: contain;
   margin-bottom: 7px;
 }
 
-.icon-button p {
+.icon_button p {
   margin: 0;
   padding: 0;
   line-height: 1;
   font-size: 11.13px;
 }
 
-.modal-body {
+.modal_body {
   height: 117px;
   margin-top: 13px;
   padding: 0 12px;
   text-align: left;
 }
 
-.modal-subtitle {
+.modal_subtitle {
   font-size: 11.4px;
   line-height: 9px;
   color: rgba(255, 255, 255, 0.83);
   margin-bottom: 4px;
 }
 
-.modal-title {
+.modal_title {
   font-size: 18.66px;
   font-weight: bold;
   line-height: 14px;
@@ -88,7 +88,7 @@
   margin-bottom: 4px;
 }
 
-.modal-description {
+.modal_description {
   font-size: 11.4px;
   color: rgba(255, 255, 255, 0.83);
   margin-bottom: 8px;
@@ -99,7 +99,7 @@
   text-overflow: ellipsis;
 }
 
-.modal-tags {
+.modal_tags {
   font-size: 11.4px;
   font-weight: 600;
   color: #ffffff;
