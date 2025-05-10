@@ -1,5 +1,6 @@
 import './Banner.css';
 import { useEffect, useState, useMemo } from 'react';
+import { useMixedContent } from '../../hooks/useMixedContent';
 import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
 import MyListIcon from '../../assets/icon-mylist.svg';
@@ -8,8 +9,7 @@ import InfoIcon from '../../assets/icon-info.svg';
 import { useMyList } from '../../pages/MyList/MyListContext';
 
 const Banner = ({ onInfoClick }) => {
-  const [rawMovies, setRawMovies] = useState([]);
-  const [rawTVs, setRawTVs] = useState([]);
+  const { rawMovies, rawTVs } = useMixedContent();
   const [previews, setPreviews] = useState([]);
   const [content, setContent] = useState(null);
 
@@ -31,58 +31,6 @@ const Banner = ({ onInfoClick }) => {
       });
     }
   };
-
-  useEffect(() => {
-    const fetchMixedContent = async () => {
-      try {
-        const [
-          netflixRes,
-          actionMovieRes,
-          comedyMovieRes,
-          horrorMovieRes,
-          romanceMovieRes,
-
-          actionTVRes,
-          comedyTVRes,
-          docTVRes,
-          dramaTVRes,
-          realityTVRes,
-        ] = await Promise.all([
-          instance.get(requests.fetchNetflixOriginals),
-          instance.get(requests.fetchActionMovies),
-          instance.get(requests.fetchComedyMovies),
-          instance.get(requests.fetchHorrorMovies),
-          instance.get(requests.fetchRomanceMovies),
-
-          instance.get(requests.fetchActionAdventureTV),
-          instance.get(requests.fetchComedyTV),
-          instance.get(requests.fetchDocumentaryTV),
-          instance.get(requests.fetchDramaTV),
-          instance.get(requests.fetchRealityTV),
-        ]);
-
-        setRawMovies([
-          ...netflixRes.data.results,
-          ...actionMovieRes.data.results,
-          ...comedyMovieRes.data.results,
-          ...horrorMovieRes.data.results,
-          ...romanceMovieRes.data.results,
-        ]);
-
-        setRawTVs([
-          ...actionTVRes.data.results,
-          ...comedyTVRes.data.results,
-          ...docTVRes.data.results,
-          ...dramaTVRes.data.results,
-          ...realityTVRes.data.results,
-        ]);
-      } catch (error) {
-        console.error('배너 콘텐츠 로딩 실패:', error);
-      }
-    };
-
-    fetchMixedContent();
-  }, []);
 
   const movieList = useMemo(() => {
     return rawMovies.map((item) => ({
