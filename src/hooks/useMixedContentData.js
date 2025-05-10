@@ -1,9 +1,8 @@
-// useMixedContent.js
 import { useEffect, useState } from 'react';
 import { instance } from '../api/axios';
 import { requests } from '../api/requests';
 
-export const useMixedContent = (type = 'all') => {
+export const useMixedContentData = (type = 'all') => {
   const [rawMovies, setRawMovies] = useState([]);
   const [rawTVs, setRawTVs] = useState([]);
 

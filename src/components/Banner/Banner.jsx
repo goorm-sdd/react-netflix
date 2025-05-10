@@ -1,6 +1,6 @@
 import './Banner.css';
 import { useEffect, useState, useMemo } from 'react';
-import { useMixedContent } from '../../hooks/useMixedContent';
+import { useMixedContentData } from '../../hooks/useMixedContentData';
 import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
 import MyListIcon from '../../assets/icon-mylist.svg';
@@ -9,7 +9,7 @@ import InfoIcon from '../../assets/icon-info.svg';
 import { useMyList } from '../../pages/MyList/MyListContext';
 
 const Banner = ({ onInfoClick, type = 'all' }) => {
-  const { rawMovies, rawTVs } = useMixedContent(type);
+  const { rawMovies, rawTVs } = useMixedContentData(type);
   const [previews, setPreviews] = useState([]);
   const [content, setContent] = useState(null);
 
