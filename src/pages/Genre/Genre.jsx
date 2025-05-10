@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import EachMovieGenrePage from '../../components/EachGenre/EachMovieGenrePage';
-import EachTVGenrePage from '../../components/EachGenre/EachTVGenrePage';
+import GridMovie from '../../components/GridBox/GridMovie';
+import GridTV from '../../components/GridBox/GridTV';
 import './Genre.css';
 
 const Genre = () => {
@@ -11,9 +11,9 @@ const Genre = () => {
     <div className="genre-page">
       <div className="grid-container">
         {mediaType === 'movies' ? (
-          <EachMovieGenrePage genreName={genreName} />
+          <GridMovie genreName={genreName} />
         ) : (
-          <EachTVGenrePage genreName={genreName} />
+          <GridTV genreName={genreName} />
         )}
       </div>
     </div>

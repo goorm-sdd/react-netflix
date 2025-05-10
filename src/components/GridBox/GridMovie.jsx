@@ -4,7 +4,7 @@ import { instance } from '../../services/api';
 import { requests } from '../../services/requests';
 import DetailModal from '../DetailModal/DetailModal';
 
-const EachMovieGenrePage = () => {
+const GridMovie = () => {
   const { genreName } = useParams();
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
@@ -134,4 +134,4 @@ const EachMovieGenrePage = () => {
   );
 };
 
-export default EachMovieGenrePage;
+export default GridMovie;
