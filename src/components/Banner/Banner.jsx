@@ -1,5 +1,6 @@
 import './Banner.css';
 import { useEffect, useState, useMemo } from 'react';
+import { useMixedContentData } from '../../hooks/useMixedContentData';
 import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
 import MyListIcon from '../../assets/icon-mylist.svg';
@@ -7,9 +8,8 @@ import PlayIcon from '../../assets/icon-modal-play.svg';
 import InfoIcon from '../../assets/icon-info.svg';
 import { useMyList } from '../../pages/MyList/MyListContext';
 
-const Banner = ({ onInfoClick }) => {
-  const [rawMovies, setRawMovies] = useState([]);
-  const [rawTVs, setRawTVs] = useState([]);
+const Banner = ({ onInfoClick, type = 'all' }) => {
+  const { rawMovies, rawTVs } = useMixedContentData(type);
   const [previews, setPreviews] = useState([]);
   const [content, setContent] = useState(null);
 
@@ -31,58 +31,6 @@ const Banner = ({ onInfoClick }) => {
       });
     }
   };
-
-  useEffect(() => {
-    const fetchMixedContent = async () => {
-      try {
-        const [
-          netflixRes,
-          actionMovieRes,
-          comedyMovieRes,
-          horrorMovieRes,
-          romanceMovieRes,
-
-          actionTVRes,
-          comedyTVRes,
-          docTVRes,
-          dramaTVRes,
-          realityTVRes,
-        ] = await Promise.all([
-          instance.get(requests.fetchNetflixOriginals),
-          instance.get(requests.fetchActionMovies),
-          instance.get(requests.fetchComedyMovies),
-          instance.get(requests.fetchHorrorMovies),
-          instance.get(requests.fetchRomanceMovies),
-
-          instance.get(requests.fetchActionAdventureTV),
-          instance.get(requests.fetchComedyTV),
-          instance.get(requests.fetchDocumentaryTV),
-          instance.get(requests.fetchDramaTV),
-          instance.get(requests.fetchRealityTV),
-        ]);
-
-        setRawMovies([
-          ...netflixRes.data.results,
-          ...actionMovieRes.data.results,
-          ...comedyMovieRes.data.results,
-          ...horrorMovieRes.data.results,
-          ...romanceMovieRes.data.results,
-        ]);
-
-        setRawTVs([
-          ...actionTVRes.data.results,
-          ...comedyTVRes.data.results,
-          ...docTVRes.data.results,
-          ...dramaTVRes.data.results,
-          ...realityTVRes.data.results,
-        ]);
-      } catch (error) {
-        console.error('배너 콘텐츠 로딩 실패:', error);
-      }
-    };
-
-    fetchMixedContent();
-  }, []);
 
   const movieList = useMemo(() => {
     return rawMovies.map((item) => ({
@@ -112,22 +60,33 @@ const Banner = ({ onInfoClick }) => {
   }, [combined]);
 
   useEffect(() => {
-    instance
-      .get(requests.fetchTrending)
-      .then((res) => {
+    const fetchPreviews = async () => {
+      try {
+        const url =
+          type === 'tv'
+            ? requests.fetchTrendingTV
+            : type === 'movie'
+              ? requests.fetchTrendingMovies
+              : requests.fetchTrending;
+
+        const res = await instance.get(url);
         const mapped = res.data.results
           .filter((item) => item.poster_path)
           .map((item) => ({
             id: item.id,
             title: item.title || item.name,
             image: `https://image.tmdb.org/t/p/w300${item.poster_path}`,
-            media_type: item.media_type,
+            media_type: item.media_type || (item.title ? 'movie' : 'tv'),
             genre_ids: item.genre_ids,
           }));
         setPreviews(mapped);
-      })
-      .catch((err) => console.error('트렌딩 썸네일 불러오기 실패:', err));
-  }, []);
+      } catch (err) {
+        console.error('프리뷰 콘텐츠 로딩 실패:', err);
+      }
+    };
+
+    fetchPreviews();
+  }, [type]);
 
   if (!content) return null;
 

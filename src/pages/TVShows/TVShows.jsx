@@ -16,7 +16,7 @@ const TVShows = () => {
   };
   return (
     <>
-      <Banner onInfoClick={openModal} />
+      <Banner onInfoClick={openModal} type="tv" />
       <DetailModal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
