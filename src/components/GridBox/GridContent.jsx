@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import { useGridContentData } from '../../hooks/useGridContentData';
+import { useContentData } from '../../hooks/useContentData';
 import DetailModal from '../DetailModal/DetailModal';
 
 const GridContent = () => {
@@ -8,7 +8,14 @@ const GridContent = () => {
   const [page, setPage] = useState(1);
   const observer = useRef();
 
-  const { items, loading } = useGridContentData(mediaType, genreName, page);
+  const { movies, tvs, loading } = useContentData({
+    mediaType,
+    genreName,
+    page,
+    mode: 'single',
+  });
+
+  const items = mediaType === 'movies' ? movies : tvs;
 
   const [selectedId, setSelectedId] = useState(null);
   const [selectedType, setSelectedType] = useState(null);
