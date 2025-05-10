@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import Banner from '../../components/Banner/Banner';
 import DetailModal from '../../components/DetailModal/DetailModal';
-import { useState } from 'react';
 import Feed from '../../components/Feed/Feed';
 
 const Home = () => {

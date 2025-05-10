@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMyList } from '../../context/MyListContext';
-import './MyList.css';
 import DetailModal from '../../components/DetailModal/DetailModal';
+import './MyList.css';
 
 const MyList = () => {
   const { myList, removeFromMyList } = useMyList();

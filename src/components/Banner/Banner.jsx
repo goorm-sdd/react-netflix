@@ -1,4 +1,3 @@
-import './Banner.css';
 import { useEffect, useState, useMemo } from 'react';
 import { useMixedContentData } from '../../hooks/useMixedContentData';
 import { instance } from '../../services/api';
@@ -7,6 +6,7 @@ import MyListIcon from '../../assets/icon-mylist-plus.svg';
 import PlayIcon from '../../assets/icon-modal-play.svg';
 import InfoIcon from '../../assets/icon-info.svg';
 import { useMyList } from '../../context/MyListContext';
+import './Banner.css';
 
 const Banner = ({ onInfoClick, type = 'all' }) => {
   const { rawMovies, rawTVs } = useMixedContentData(type);

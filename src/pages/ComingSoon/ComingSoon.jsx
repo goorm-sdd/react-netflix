@@ -1,8 +1,8 @@
 import React from 'react';
-import './ComingSoon.css';
 import { useMovieData } from '../../hooks/useMovieData';
 import { requests } from '../../services/requests';
 import MovieCard from '../../components/MovieCard/MovieCard';
+import './ComingSoon.css';
 
 const ComingSoon = () => {
   const { data: movies, loading, error } = useMovieData(requests.fetchUpcoming);

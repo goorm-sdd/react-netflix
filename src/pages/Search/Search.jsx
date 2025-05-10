@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useMovieData } from '../../hooks/useMovieData';
 import { requests } from '../../services/requests';
-import './Search.css';
 import DetailModal from '../../components/DetailModal/DetailModal';
+import './Search.css';
 
 const Search = () => {
   const [query, setQuery] = useState('');
