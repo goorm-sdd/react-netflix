@@ -60,22 +60,33 @@ const Banner = ({ onInfoClick, type = 'all' }) => {
   }, [combined]);
 
   useEffect(() => {
-    instance
-      .get(requests.fetchTrending)
-      .then((res) => {
+    const fetchPreviews = async () => {
+      try {
+        const url =
+          type === 'tv'
+            ? requests.fetchTrendingTV
+            : type === 'movie'
+              ? requests.fetchTrendingMovies
+              : requests.fetchTrending;
+
+        const res = await instance.get(url);
         const mapped = res.data.results
           .filter((item) => item.poster_path)
           .map((item) => ({
             id: item.id,
             title: item.title || item.name,
             image: `https://image.tmdb.org/t/p/w300${item.poster_path}`,
-            media_type: item.media_type,
+            media_type: item.media_type || (item.title ? 'movie' : 'tv'),
             genre_ids: item.genre_ids,
           }));
         setPreviews(mapped);
-      })
-      .catch((err) => console.error('트렌딩 썸네일 불러오기 실패:', err));
-  }, []);
+      } catch (err) {
+        console.error('프리뷰 콘텐츠 로딩 실패:', err);
+      }
+    };
+
+    fetchPreviews();
+  }, [type]);
 
   if (!content) return null;
 
