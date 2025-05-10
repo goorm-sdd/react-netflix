@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo } from 'react';
-import { useMixedContentData } from '../../hooks/useMixedContentData';
+import { useContentData } from '../../hooks/useContentData';
 import { instance } from '../../services/api';
 import { requests } from '../../services/requests';
 import MyListIcon from '../../assets/icon-mylist-plus.svg';
@@ -9,7 +9,11 @@ import { useMyList } from '../../context/MyListContext';
 import './Banner.css';
 
 const Banner = ({ onInfoClick, type = 'all' }) => {
-  const { rawMovies, rawTVs } = useMixedContentData(type);
+  const { movies, tvs } = useContentData({
+    mediaType: type,
+    mode: 'multi',
+  });
+
   const [previews, setPreviews] = useState([]);
   const [content, setContent] = useState(null);
 
@@ -32,31 +36,33 @@ const Banner = ({ onInfoClick, type = 'all' }) => {
     }
   };
 
-  const movieList = useMemo(() => {
-    return rawMovies.map((item) => ({
-      ...item,
-      media_type: 'movie',
-      genre_ids: item.genre_ids,
-    }));
-  }, [rawMovies]);
+  const movieList = useMemo(
+    () =>
+      movies.map((item) => ({
+        ...item,
+        media_type: 'movie',
+      })),
+    [movies],
+  );
 
-  const tvList = useMemo(() => {
-    return rawTVs.map((item) => ({
-      ...item,
-      media_type: 'tv',
-      genre_ids: item.genre_ids,
-    }));
-  }, [rawTVs]);
+  const tvList = useMemo(
+    () =>
+      tvs.map((item) => ({
+        ...item,
+        media_type: 'tv',
+      })),
+    [tvs],
+  );
 
-  const combined = useMemo(() => {
-    return [...movieList, ...tvList];
-  }, [movieList, tvList]);
+  const combined = useMemo(
+    () => [...movieList, ...tvList],
+    [movieList, tvList],
+  );
 
   useEffect(() => {
     if (combined.length === 0) return;
     const random = combined[Math.floor(Math.random() * combined.length)];
     setContent(random);
-    console.log('배너 콘텐츠:', random);
   }, [combined]);
 
   useEffect(() => {
@@ -130,14 +136,13 @@ const Banner = ({ onInfoClick, type = 'all' }) => {
             <p>Previews</p>
           </div>
           <div className="banner_previews_container">
-            {previews.map((content) => (
+            {previews.map((preview) => (
               <div
                 className="preview_item"
-                key={content.id}
-                onClick={() => onInfoClick(content.id, content.media_type)}
-                style={{ cursor: 'pointer' }}
+                key={preview.id}
+                onClick={() => onInfoClick(preview.id, preview.media_type)}
               >
-                <img src={content.image} alt={content.title} />
+                <img src={preview.image} alt={preview.title} />
               </div>
             ))}
           </div>
