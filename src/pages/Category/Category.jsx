@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileIcon from '../../assets/icon-profile.svg';
+import ProfileIcon from '../../assets/img-profile.svg';
 import './Category.css';
 
 const Category = ({ onProfileSelect }) => {
