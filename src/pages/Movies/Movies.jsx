@@ -23,7 +23,7 @@ const Movies = () => {
         movieId={selectedId}
         movieType={selectedType}
       />
-      <div className="movies-container">
+      <div className="movies_container">
         <RowMovie
           title="Netflix Originals"
           fetchUrl={requests.fetchNetflixOriginals}
