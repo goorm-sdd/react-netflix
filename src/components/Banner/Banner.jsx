@@ -3,7 +3,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { useMixedContentData } from '../../hooks/useMixedContentData';
 import { instance } from '../../api/axios';
 import { requests } from '../../api/requests';
-import MyListIcon from '../../assets/icon-mylist.svg';
+import MyListIcon from '../../assets/icon-mylist-plus.svg';
 import PlayIcon from '../../assets/icon-modal-play.svg';
 import InfoIcon from '../../assets/icon-info.svg';
 import { useMyList } from '../../pages/MyList/MyListContext';
