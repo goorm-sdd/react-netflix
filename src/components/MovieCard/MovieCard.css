@@ -32,7 +32,7 @@
   cursor: pointer;
 }
 
-.remindme-icon_img,
+.remindme_icon_img,
 .movie_icon_img {
   width: 24px;
   height: 24px;
@@ -90,7 +90,7 @@
   align-items: center;
 }
 
-.genre-item {
+.genre_item {
   margin-right: 4px;
 }
 

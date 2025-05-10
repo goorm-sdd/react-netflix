@@ -10,11 +10,11 @@ const Category = ({ onProfileSelect }) => {
     { name: 'Sumdeep', color: 'green' },
   ];
   return (
-    <div className="category-container">
+    <div className="category_container">
       <img
         src="./src/assets/logo.svg"
         alt="Netflix Logo"
-        className="netflix-logo-category"
+        className="netflix_logo_category"
       />
       <div className="profiles">
         {profiles.map((profile, idx) => (
@@ -22,7 +22,7 @@ const Category = ({ onProfileSelect }) => {
             <img
               src={ProfileIcon}
               alt={profile.name}
-              className={`profile-icon ${profile.color}`}
+              className={`profile_icon ${profile.color}`}
             />
             <p>{profile.name}</p>
           </div>

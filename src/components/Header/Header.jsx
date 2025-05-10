@@ -34,7 +34,7 @@ const Header = () => {
   };
 
   return (
-    <div className="Header">
+    <div className="header">
       <Logo />
       {isTVShowsPage && (
         <>
@@ -77,10 +77,10 @@ const Header = () => {
       )}
       {isHomePage && (
         <>
-          <Link to="/tv-shows" className="Header-link">
+          <Link to="/tv-shows" className="header_link">
             TV Shows
           </Link>
-          <Link to="/movies" className="Header-link">
+          <Link to="/movies" className="header_link">
             Movies
           </Link>
         </>

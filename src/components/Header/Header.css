@@ -1,4 +1,4 @@
-.Header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@
   color: white;
 }
 
-.Header a {
+.header a {
   background-color: black;
   text-decoration: none;
   color: white;
@@ -22,7 +22,7 @@
   font-size: 17.2px;
 }
 
-.Header-link:hover {
+.header_link:hover {
   text-decoration: underline;
 }
 

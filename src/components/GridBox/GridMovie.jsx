@@ -106,7 +106,7 @@ const GridMovie = () => {
       {movies.map((movie, index) => {
         if (movie.poster_path && index === movies.length - 1) {
           return (
-            <div ref={lastMovieElementRef} key={movie.id} className="grid-item">
+            <div ref={lastMovieElementRef} key={movie.id} className="grid_item">
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
@@ -117,7 +117,7 @@ const GridMovie = () => {
           );
         } else if (movie.poster_path) {
           return (
-            <div key={movie.id} className="grid-item">
+            <div key={movie.id} className="grid_item">
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
