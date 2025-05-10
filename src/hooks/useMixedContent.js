@@ -1,62 +1,51 @@
+// useMixedContent.js
 import { useEffect, useState } from 'react';
 import { instance } from '../api/axios';
 import { requests } from '../api/requests';
 
-export const useMixedContent = () => {
+export const useMixedContent = (type = 'all') => {
   const [rawMovies, setRawMovies] = useState([]);
   const [rawTVs, setRawTVs] = useState([]);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchMixedContent = async () => {
+    const fetchContent = async () => {
       try {
-        const [
-          netflixRes,
-          actionMovieRes,
-          comedyMovieRes,
-          horrorMovieRes,
-          romanceMovieRes,
-          actionTVRes,
-          comedyTVRes,
-          docTVRes,
-          dramaTVRes,
-          realityTVRes,
-        ] = await Promise.all([
-          instance.get(requests.fetchNetflixOriginals),
-          instance.get(requests.fetchActionMovies),
-          instance.get(requests.fetchComedyMovies),
-          instance.get(requests.fetchHorrorMovies),
-          instance.get(requests.fetchRomanceMovies),
-          instance.get(requests.fetchActionAdventureTV),
-          instance.get(requests.fetchComedyTV),
-          instance.get(requests.fetchDocumentaryTV),
-          instance.get(requests.fetchDramaTV),
-          instance.get(requests.fetchRealityTV),
-        ]);
+        const movieRequests = [
+          requests.fetchNetflixOriginals,
+          requests.fetchActionMovies,
+          requests.fetchComedyMovies,
+          requests.fetchHorrorMovies,
+          requests.fetchRomanceMovies,
+        ];
 
-        setRawMovies([
-          ...netflixRes.data.results,
-          ...actionMovieRes.data.results,
-          ...comedyMovieRes.data.results,
-          ...horrorMovieRes.data.results,
-          ...romanceMovieRes.data.results,
-        ]);
+        const tvRequests = [
+          requests.fetchActionAdventureTV,
+          requests.fetchComedyTV,
+          requests.fetchDocumentaryTV,
+          requests.fetchDramaTV,
+          requests.fetchRealityTV,
+        ];
 
-        setRawTVs([
-          ...actionTVRes.data.results,
-          ...comedyTVRes.data.results,
-          ...docTVRes.data.results,
-          ...dramaTVRes.data.results,
-          ...realityTVRes.data.results,
-        ]);
-      } catch (err) {
-        console.error('useMixedContent Error:', err);
-        setError(err);
+        if (type === 'movie' || type === 'all') {
+          const movieRes = await Promise.all(
+            movieRequests.map((url) => instance.get(url)),
+          );
+          setRawMovies(movieRes.flatMap((res) => res.data.results || []));
+        }
+
+        if (type === 'tv' || type === 'all') {
+          const tvRes = await Promise.all(
+            tvRequests.map((url) => instance.get(url)),
+          );
+          setRawTVs(tvRes.flatMap((res) => res.data.results || []));
+        }
+      } catch (error) {
+        console.error('콘텐츠 로딩 실패:', error);
       }
     };
 
-    fetchMixedContent();
-  }, []);
+    fetchContent();
+  }, [type]);
 
-  return { rawMovies, rawTVs, error };
+  return { rawMovies, rawTVs };
 };
