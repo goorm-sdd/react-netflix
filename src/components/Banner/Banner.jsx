@@ -137,13 +137,13 @@ const Banner = ({ onInfoClick, type = 'all' }) => {
             <p>Previews</p>
           </div>
           <Swiper
-            spaceBetween={12}
-            slidesPerView={3.5}
             className="banner_previews_swiper"
+            spaceBetween={12}
+            slidesPerView="auto"
             grabCursor={true}
           >
             {previews.map((content) => (
-              <SwiperSlide key={content.id}>
+              <SwiperSlide key={content.id} style={{ width: '102px' }}>
                 <div
                   className="preview_item"
                   onClick={() => onInfoClick(content.id, content.media_type)}

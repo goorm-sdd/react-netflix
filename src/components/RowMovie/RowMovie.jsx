@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { instance } from '../../services/api';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 import './RowMovie.css';
 
 const RowMovie = ({ title, fetchUrl, onInfoClick }) => {
@@ -28,18 +30,24 @@ const RowMovie = ({ title, fetchUrl, onInfoClick }) => {
   return (
     <div className="row">
       <h2 className="row_title">{title}</h2>
-      <div className="row_posters">
+      <Swiper
+        className="row_swiper"
+        spaceBetween={8}
+        grabCursor={true}
+        slidesPerView="auto"
+      >
         {items.map((item) => (
-          <img
-            key={item.id}
-            className="row_poster"
-            src={item.poster}
-            alt={item.title}
-            onClick={() => onInfoClick(item.id, item.media_type)}
-            style={{ cursor: 'pointer' }}
-          />
+          <SwiperSlide key={item.id} style={{ width: '103px' }}>
+            <img
+              className="row_poster"
+              src={item.poster}
+              alt={item.title}
+              onClick={() => onInfoClick(item.id, item.media_type)}
+              style={{ cursor: 'pointer' }}
+            />
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 };

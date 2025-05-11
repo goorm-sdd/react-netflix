@@ -14,20 +14,13 @@
   padding-left: 4px;
 }
 
-.row_posters {
-  display: flex;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  gap: 8px;
-  padding-bottom: 4px;
+.row_swiper {
   padding-left: 4px;
-  scroll-behavior: smooth;
+  padding-bottom: 4px;
 }
 
-.row_posters::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  display: none;
+.swiper_slide {
+  width: auto !important;
 }
 
 .row_poster {
