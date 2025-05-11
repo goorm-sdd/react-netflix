@@ -6,6 +6,8 @@ import MyListIcon from '../../assets/icon-mylist-plus.svg';
 import PlayIcon from '../../assets/icon-modal-play.svg';
 import InfoIcon from '../../assets/icon-info.svg';
 import { useMyList } from '../../context/MyListContext';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 import './Banner.css';
 
 const Banner = ({ onInfoClick, type = 'all' }) => {
@@ -135,17 +137,24 @@ const Banner = ({ onInfoClick, type = 'all' }) => {
           <div className="banner_preview">
             <p>Previews</p>
           </div>
-          <div className="banner_previews_container">
-            {previews.map((preview) => (
-              <div
-                className="preview_item"
-                key={preview.id}
-                onClick={() => onInfoClick(preview.id, preview.media_type)}
-              >
-                <img src={preview.image} alt={preview.title} />
-              </div>
+          <Swiper
+            spaceBetween={12}
+            slidesPerView={3.5}
+            className="banner_previews_swiper"
+            grabCursor={true}
+          >
+            {previews.map((content) => (
+              <SwiperSlide key={content.id}>
+                <div
+                  className="preview_item"
+                  onClick={() => onInfoClick(content.id, content.media_type)}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <img src={content.image} alt={content.title} />
+                </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
       </div>
     </div>
