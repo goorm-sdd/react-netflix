@@ -1,3 +1,8 @@
-.Logo {
+.logo {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+.logo img {
   width: 40px;
 }

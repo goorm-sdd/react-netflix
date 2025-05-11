@@ -4,8 +4,8 @@ import './Logo.css';
 
 const Logo = () => {
   return (
-    <Link to="/">
-      <img src={LogoIcon} alt="Netflix" className="logo" />
+    <Link to="/" className="logo">
+      <img src={LogoIcon} alt="Netflix" />
     </Link>
   );
 };
