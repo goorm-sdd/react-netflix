@@ -30,18 +30,24 @@ const RowMovie = ({ title, fetchUrl, onInfoClick }) => {
   return (
     <div className="row">
       <h2 className="row_title">{title}</h2>
-      <div className="row_posters">
+      <Swiper
+        spaceBetween={10}
+        slidesPerView={3.2}
+        grabCursor={true}
+        className="row_swiper"
+      >
         {items.map((item) => (
-          <img
-            key={item.id}
-            className="row_poster"
-            src={item.poster}
-            alt={item.title}
-            onClick={() => onInfoClick(item.id, item.media_type)}
-            style={{ cursor: 'pointer' }}
-          />
+          <SwiperSlide key={item.id}>
+            <img
+              className="row_poster"
+              src={item.poster}
+              alt={item.title}
+              onClick={() => onInfoClick(item.id, item.media_type)}
+              style={{ cursor: 'pointer' }}
+            />
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 };
