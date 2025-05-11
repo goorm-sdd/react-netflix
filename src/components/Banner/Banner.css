@@ -93,23 +93,12 @@
   margin-left: 12px;
 }
 
-.banner_previews_container {
-  width: 100%;
-  height: 102px;
-  display: flex;
-  overflow-x: auto;
-  gap: 12px;
-  scrollbar-width: none;
-}
-
-.banner_previews_container::-webkit-scrollbar {
-  display: none;
+.banner_previews_swiper {
 }
 
 .preview_item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 102px;
+  height: 102px;
   flex-shrink: 0;
 }
 
