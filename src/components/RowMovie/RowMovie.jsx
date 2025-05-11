@@ -31,13 +31,13 @@ const RowMovie = ({ title, fetchUrl, onInfoClick }) => {
     <div className="row">
       <h2 className="row_title">{title}</h2>
       <Swiper
-        spaceBetween={10}
-        slidesPerView={3.2}
-        grabCursor={true}
         className="row_swiper"
+        spaceBetween={8}
+        grabCursor={true}
+        slidesPerView="auto"
       >
         {items.map((item) => (
-          <SwiperSlide key={item.id}>
+          <SwiperSlide key={item.id} style={{ width: '103px' }}>
             <img
               className="row_poster"
               src={item.poster}
