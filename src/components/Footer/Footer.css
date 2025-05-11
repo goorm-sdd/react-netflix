@@ -1,32 +1,35 @@
 .footer {
   position: fixed;
+  display: flex;
   bottom: 0;
   left: 0;
-  background-color: black;
+  right: 0;
   height: 65px;
-  width: 100%;
-  display: flex;
   justify-content: space-around;
+  background-color: rgb(20, 20, 20);
+  z-index: 1;
 }
 
 .footer > a {
-  background-color: black;
-  text-decoration: none;
-  color: gray;
-  padding: 5px;
   margin: 5px;
-  cursor: pointer;
-  font-size: 8px;
+  padding: 5px;
   align-content: center;
   text-align: center;
+  background-color: rgb(20, 20, 20);
+  font-size: 11px;
+  color: #8c8787;
+}
+.footer > a.active,
+.footer > a.active img {
+  filter: invert(0%);
+  color: white;
 }
 
+.footer > a em {
+  display: block;
+  margin-top: 2px;
+}
 .footer_icon {
   width: 24px;
   filter: invert(70%);
-}
-
-.active {
-  filter: invert(0%);
-  color: white;
 }

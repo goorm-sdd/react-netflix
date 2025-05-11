@@ -1,83 +1,66 @@
 .banner {
-  width: 375px;
-  height: 661px;
-  background-color: black;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 }
-
 .banner_poster {
-  width: 100%;
-  height: 415px;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  position: relative;
+  text-align: center;
+}
+.banner_poster img {
+  width: 375px;
 }
 
 .banner_contents {
   margin-top: 13px;
-  width: 100%;
-  height: 233px;
-  background-color: black;
 }
 
 .banner_buttons {
-  width: 259px;
-  height: 45px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
+  gap: 20px;
+  justify-content: center;
 }
 
 .banner_mylist,
 .banner_info {
+  display: flex;
+  gap: 5px;
   width: 41px;
   height: 45px;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
 }
 
 .banner_mylist p,
 .banner_info p {
-  font-size: 13.64px;
-  color: #ffffff;
-  margin: 0;
   text-align: center;
   white-space: nowrap;
+  font-size: 14px;
+  color: #ffffff;
 }
 
 .banner_play {
-  width: 110.62px;
-  height: 45px;
-  background-color: #c4c4c4;
-  border-radius: 5.63px;
   display: flex;
+  gap: 10px;
+  width: 110px;
+  height: 45px;
+  border-radius: 6px;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  background-color: #c4c4c4;
+}
+.button_play_icon {
+  width: 16px;
 }
 
 .banner_play p {
-  font-size: 20.46px;
   font-weight: 600;
-  margin: 0;
-}
-
-.button_icon {
-  width: 24px;
-  height: 24px;
-}
-
-.button_play_icon {
-  width: 18px;
-  height: 21.6px;
+  font-size: 20px;
 }
 
 .banner_previews {
-  margin-top: 43px;
-  width: 100%;
-  height: 145px;
+  margin-top: 50px;
 }
 
 .banner_preview {
@@ -86,19 +69,30 @@
 }
 
 .banner_preview p {
-  font-size: 26.75px;
-  font-weight: bold;
-  color: #ffffff;
   margin-top: 0;
   margin-left: 12px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
 }
 
-.banner_previews_swiper {
+.banner_previews_container {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  width: 100%;
+  height: 102px;
+  scrollbar-width: none;
+}
+
+.banner_previews_container::-webkit-scrollbar {
+  display: none;
 }
 
 .preview_item {
-  width: 102px;
-  height: 102px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex-shrink: 0;
 }
 

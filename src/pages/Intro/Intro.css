@@ -1,15 +1,12 @@
 .intro_container {
-  position: fixed;
+  position: absolute;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  width: 375px;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000;
-  z-index: 9999;
-  cursor: pointer;
 }
 
 .netflix_logo img {

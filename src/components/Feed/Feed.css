@@ -1,9 +1,4 @@
-.Feed {
-  width: 375px;
-  background-color: #000000;
-  padding: 0 12px;
-  padding-bottom: 80px;
-  box-sizing: border-box;
-  margin: 0 auto;
+.feed_container {
   overflow-x: hidden;
+  padding: 35px 12px 0;
 }

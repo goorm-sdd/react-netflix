@@ -11,6 +11,7 @@ const Header = () => {
   const isTVShowsPage = location.pathname === '/tv-shows';
   const isHomePage = location.pathname === '/';
   const isListPage = location.pathname === '/my-list';
+  const isNotifications = location.pathname === '/coming-soon';
   const isGenrePage =
     location.pathname.includes('/movies/') ||
     location.pathname.includes('/tv-shows/');
@@ -34,7 +35,7 @@ const Header = () => {
   };
 
   return (
-    <div className="header">
+    <div className={`header ${isNotifications ? 'notifications-header' : ''}`}>
       <Logo />
       {isTVShowsPage && (
         <>
@@ -121,6 +122,11 @@ const Header = () => {
                   ]
             }
           />
+        </>
+      )}
+      {isNotifications && (
+        <>
+          <Navigation title="Notifications" />
         </>
       )}
     </div>

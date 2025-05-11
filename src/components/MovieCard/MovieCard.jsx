@@ -27,7 +27,7 @@ const MovieCard = ({ movie }) => {
   };
 
   return (
-    <div className="movie_card">
+    <li className="movie_card">
       <img
         className="movie_image"
         src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path || movie.poster_path}`}
@@ -42,11 +42,9 @@ const MovieCard = ({ movie }) => {
               alt="Remind Me"
               className="remindme_icon_img"
             />
-            <span>Remind Me</span>
           </div>
           <div className="movie_button_share">
             <img src={ShareIcon} alt="Share" className="movie_icon_img" />
-            <span>Share</span>
           </div>
         </div>
 
@@ -59,14 +57,14 @@ const MovieCard = ({ movie }) => {
           <div className="movie_genres">
             {genres.map((genre, index) => (
               <span key={genre.id} className="genre_item">
-                {index > 0 && <span className="dot"> • </span>}
+                {index > 0 && <span className="dot">•</span>}
                 {genre.name}
               </span>
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </li>
   );
 };
 export default MovieCard;

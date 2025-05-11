@@ -1,25 +1,19 @@
 .movie_card {
-  width: 100%;
-  background-color: black;
-  color: white;
+  background-color: rgb(0, 0, 0);
 }
-
 .movie_image {
   width: 100%;
-  height: auto;
-  display: block;
+  max-height: 280px;
 }
-
 .movie_info {
   padding: 12px;
-  background-color: black;
+  text-align: left;
 }
 
 .movie_buttons {
   display: flex;
   justify-content: flex-end;
   gap: 24px;
-  padding-right: 12px;
   margin-bottom: 8px;
 }
 
@@ -34,60 +28,46 @@
 
 .remindme_icon_img,
 .movie_icon_img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-  margin-bottom: 7px;
+  width: 18px;
 }
 
 .movie_button_remindme span,
 .movie_button_share span {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-size: 11.13px;
-}
-
-.movie_meta {
-  text-align: left;
-  padding: 0 0 8px 0;
+  margin-top: 4px;
+  font-size: 11px;
+  color: #cacaca;
 }
 
 .release {
-  font-size: 11.4px;
-  line-height: 9px;
   color: rgba(255, 255, 255, 0.83);
-  margin-bottom: 4px;
+  font-size: 13px;
 }
 
 .movie_title {
-  font-size: 18.66px;
+  margin-top: 10px;
   font-weight: bold;
-  line-height: 14px;
-  color: #ffffff;
-  margin-bottom: 4px;
+  font-size: 21px;
+  color: #fff;
 }
 
 .movie_overview {
-  font-size: 11.4px;
-  color: rgba(255, 255, 255, 0.83);
-  margin-bottom: 8px;
+  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin-top: 10px;
   text-overflow: ellipsis;
   word-break: keep-all;
+  line-height: 1.35;
+  font-size: 14px;
+  color: #cacaca;
 }
 
 .movie_genres {
-  font-size: 11.4px;
-  font-weight: 600;
-  color: #ffffff;
-  line-height: 9px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #fff;
 }
 
 .genre_item {
@@ -95,7 +75,7 @@
 }
 
 .dot {
+  margin: 0 6px;
   color: #ffffffb0;
   font-weight: bold;
-  margin: 0 6px;
 }

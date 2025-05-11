@@ -1,0 +1,7 @@
+.container {
+  padding: 80px 0 65px;
+}
+
+.container.no-header {
+  padding-top: 0;
+}

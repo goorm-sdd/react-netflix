@@ -10,45 +10,40 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <Link to="/">
-        <img
-          src={HomeIcon}
-          alt="home"
-          className={`footer_icon ${location.pathname === '/' ? 'active' : ''}`}
-        />
-        <div className={location.pathname === '/' ? 'active' : ''}>Home</div>
+      <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
+        <img src={HomeIcon} alt="home" className="footer_icon" />
+        <em>Home</em>
       </Link>
-      <Link to="/search">
-        <img
-          src={SearchIcon}
-          alt="search"
-          className={`footer_icon ${location.pathname === '/search' ? 'active' : ''}`}
-        />
-        <div className={location.pathname === '/search' ? 'active' : ''}>
-          Search
-        </div>
+      <Link
+        to="/search"
+        className={location.pathname === '/search' ? 'active' : ''}
+      >
+        <img src={SearchIcon} alt="search" className="footer_icon" />
+        <em>Search</em>
       </Link>
-      <Link to="/coming-soon">
+      <Link
+        to="/coming-soon"
+        className={location.pathname === '/coming-soon' ? 'active' : ''}
+      >
         <img
           src={ComigSoonIcon}
           alt="coming-soon"
           style={{ width: '22px' }}
-          className={`footer_icon ${location.pathname === '/coming-soon' ? 'active' : ''}`}
+          className="footer_icon"
         />
-        <div className={location.pathname === '/coming-soon' ? 'active' : ''}>
-          Coming Soon
-        </div>
+        <em>Coming Soon</em>
       </Link>
-      <Link to="/my-list">
+      <Link
+        to="/my-list"
+        className={location.pathname === '/my-list' ? 'active' : ''}
+      >
         <img
           src={MylistIcon}
           alt="my-list"
           style={{ width: '22px', marginBottom: '3px' }}
-          className={`footer_icon ${location.pathname === '/my-list' ? 'active' : ''}`}
+          className="footer_icon"
         />
-        <div className={location.pathname === '/my-list' ? 'active' : ''}>
-          My List
-        </div>
+        <em>My List</em>
       </Link>
     </footer>
   );
