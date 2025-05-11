@@ -100,14 +100,13 @@ const Banner = ({ onInfoClick, type = 'all' }) => {
 
   return (
     <div className="banner">
-      <div
-        className="banner_poster"
-        style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original${content.poster_path})`,
-          cursor: 'pointer',
-        }}
-        onClick={() => onInfoClick(content.id, content.media_type)}
-      />
+      <div className="banner_poster">
+        <img
+          src={`https://image.tmdb.org/t/p/original${content.poster_path}`}
+          alt={content.title || content.name || 'Poster'}
+          onClick={() => onInfoClick(content.id, content.media_type)}
+        />
+      </div>
       <div className="banner_contents">
         <div className="banner_buttons">
           <div

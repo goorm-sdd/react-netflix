@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Navigation.css';
 
 const Navigation = ({ title, items }) => {
   const [isNavigationOpen, setIsNavigationOpen] = useState(false);
@@ -24,18 +25,27 @@ const Navigation = ({ title, items }) => {
       );
     }
   };
+  // Notifications처럼 드롭다운 메뉴가 필요 없는 경우 예외 처리
+  const shouldShowDropdown = title !== 'Notifications';
 
   return (
     <>
-      <div className="navigation" onClick={toggleNavigation}>
-        {title} <span>▼</span>
+      <div
+        className="navigation"
+        onClick={shouldShowDropdown ? toggleNavigation : undefined}
+      >
+        {title} {shouldShowDropdown && <span>▼</span>}
       </div>
-      {isNavigationOpen && (
+      {isNavigationOpen && shouldShowDropdown && (
         <div className="navigation_menu">
           {items.map((item, index) => renderItem(item, index))}
-          <div className="navigation_close" onClick={toggleNavigation}>
+          <button
+            type="button"
+            className="btn_close"
+            onClick={toggleNavigation}
+          >
             ✕
-          </div>
+          </button>
         </div>
       )}
     </>

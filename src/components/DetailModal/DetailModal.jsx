@@ -32,18 +32,22 @@ const DetailModal = ({ isOpen, onClose, movieId, movieType }) => {
         <img className="modal_poster" src={movie.image} alt={movie.title} />
         <div className="modal_detail">
           <div className="modal_buttons">
-            <div className="icon_button" onClick={handleMyListClick}>
+            <button
+              type="button"
+              className="btn_icon"
+              onClick={handleMyListClick}
+            >
               <img
                 src={MyListIcon}
                 alt="My List"
                 className={`icon_image ${inMyList ? 'active' : ''}`}
               />
               <p>My List</p>
-            </div>
-            <div className="icon_button">
+            </button>
+            <button type="button" className="btn_icon">
               <img src={ShareIcon} alt="Share" className="icon_image" />
               <p>Share</p>
-            </div>
+            </button>
           </div>
           <div className="modal_body">
             <p className="modal_subtitle">{movie.subtitle}</p>

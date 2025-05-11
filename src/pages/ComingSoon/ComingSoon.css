@@ -1,22 +1,22 @@
-.coming_soon_container {
-  width: 375px;
-  min-height: 100vh;
-  background-color: black;
-  box-sizing: border-box;
-  position: relative;
-  left: 0;
-  font-family: Arial, sans-serif;
-}
-
-.page_title {
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  margin: 16px 12px;
-}
-
-.movielist {
+.movie_list {
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+@media screen and (min-width: 600px) {
+  .movie_list_container {
+    padding: 0 20px;
+  }
+  .movie_list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .movie_list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

@@ -24,7 +24,7 @@ const Feed = () => {
         movieType={selectedType}
         onInfoClick={openModal}
       />
-      <div className="main-page">
+      <div className="feed_container">
         <RowMovie
           title="Netflix Originals"
           fetchUrl={requests.fetchNetflixOriginals}

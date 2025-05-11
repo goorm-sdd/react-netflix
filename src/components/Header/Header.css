@@ -2,82 +2,20 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 80px;
-  background-color: black;
-  z-index: 10;
+  right: 0;
   display: flex;
+  gap: 40px;
+  height: 80px;
   align-items: center;
-  gap: 10px;
+  background-color: rgb(20, 20, 20);
   color: white;
+  z-index: 2;
 }
 
 .header a {
-  background-color: black;
-  text-decoration: none;
+  font-size: 21px;
   color: white;
-  padding: 5px;
-  margin: 5px;
-  cursor: pointer;
-  font-size: 17.2px;
 }
-
 .header_link:hover {
   text-decoration: underline;
-}
-
-.navigation {
-  padding: 5px;
-  margin: 5px;
-  position: relative;
-  cursor: pointer;
-  color: #fff;
-  font-size: 17.2px;
-}
-
-.navigation:hover {
-  text-decoration: underline;
-}
-.navigation span {
-  font-size: 13px;
-}
-
-.navigation_menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 375px;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.navigation_menu div {
-  margin-bottom: 10px;
-  cursor: pointer;
-  color: #fff;
-  font-size: 24.68px;
-}
-.navigation_menu a {
-  color: gray;
-}
-.navigation_menu a:hover {
-  text-decoration: underline;
-  color: white;
-}
-.navigation_menu div:hover {
-  text-decoration: underline;
-}
-
-.navigation_close {
-  position: absolute;
-  bottom: 40px;
-  cursor: pointer;
-  font-size: 24px;
-  color: #fff;
 }

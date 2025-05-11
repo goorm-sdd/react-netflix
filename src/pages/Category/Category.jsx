@@ -11,23 +11,25 @@ const Category = ({ onProfileSelect }) => {
   ];
   return (
     <div className="category_container">
-      <img
-        src="./src/assets/logo.svg"
-        alt="Netflix Logo"
-        className="netflix_logo_category"
-      />
-      <div className="profiles">
+      <div className="logo_box">
+        <img
+          src="./src/assets/logo.svg"
+          alt="Netflix Logo"
+          className="netflix_logo_category"
+        />
+      </div>
+      <ul className="profiles">
         {profiles.map((profile, idx) => (
-          <div key={idx} className="profile" onClick={onProfileSelect}>
+          <li key={idx} className="profile" onClick={onProfileSelect}>
             <img
               src={ProfileIcon}
               alt={profile.name}
               className={`profile_icon ${profile.color}`}
             />
             <p>{profile.name}</p>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };

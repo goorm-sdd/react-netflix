@@ -29,30 +29,29 @@ const MyList = () => {
           <p>Your list is empty. Add some movies or TV shows!</p>
         </div>
       ) : (
-        <div className="mylist_grid">
+        <ul className="mylist_grid">
           {myList.map((item) => (
-            <div className="mylist_item" key={item.id}>
-              <div
-                className="poster_container"
-                onClick={() => openModal(item.id, item.media_type)}
-              >
-                <img src={item.image} alt={item.title} className="poster" />
-                <div className="item_overlay">
-                  <h3>{item.title}</h3>
-                  <button
-                    className="remove_button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      removeFromMyList(item.id);
-                    }}
-                  >
-                    Remove
-                  </button>
-                </div>
+            <li
+              className="mylist_item"
+              key={item.id}
+              onClick={() => openModal(item.id, item.media_type)}
+            >
+              <img src={item.image} alt={item.title} className="poster" />
+              <div className="item_overlay">
+                <h3>{item.title}</h3>
+                <button
+                  className="remove_button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    removeFromMyList(item.id);
+                  }}
+                >
+                  Remove
+                </button>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
     </div>
   );

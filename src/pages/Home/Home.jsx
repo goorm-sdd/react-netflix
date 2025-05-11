@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from '../../components/Banner/Banner';
 import DetailModal from '../../components/DetailModal/DetailModal';
 import Feed from '../../components/Feed/Feed';
+import './Home.css';
 
 const Home = () => {
   const [selectedId, setSelectedId] = useState(null);
@@ -15,7 +16,7 @@ const Home = () => {
   };
 
   return (
-    <div className="Home">
+    <div className="home">
       <Banner onInfoClick={openModal} />
       <DetailModal
         isOpen={isOpen}
