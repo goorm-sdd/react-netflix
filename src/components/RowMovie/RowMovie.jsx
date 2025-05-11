@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { instance } from '../../services/api';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 import './RowMovie.css';
 
 const RowMovie = ({ title, fetchUrl, onInfoClick }) => {
