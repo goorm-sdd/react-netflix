@@ -1,7 +1,7 @@
-import './Header.css';
 import { Link, useLocation, useParams } from 'react-router-dom';
-import Logo from './Logo/Logo';
 import Navigation from '../Navigation/Navigation';
+import Logo from './Logo/Logo';
+import './Header.css';
 
 const Header = () => {
   const location = useLocation();
@@ -35,7 +35,7 @@ const Header = () => {
   };
 
   return (
-    <div className={`header ${isNotifications ? 'notifications-header' : ''}`}>
+    <div className="header">
       <Logo />
       {isTVShowsPage && (
         <>

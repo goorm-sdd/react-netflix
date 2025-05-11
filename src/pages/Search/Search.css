@@ -79,7 +79,9 @@
   margin-right: 15px;
 }
 .thumbnail_item img {
-  width: 100%;
+  width: 146px;
+  height: 76px;
+  object-fit: cover;
   vertical-align: top;
 }
 

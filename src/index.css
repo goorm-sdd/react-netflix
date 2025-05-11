@@ -132,6 +132,7 @@ body {
 
 #root {
   margin: 0 auto;
+  min-width: 375px;
   background-color: rgb(20, 20, 20);
 }
 

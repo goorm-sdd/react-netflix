@@ -2,8 +2,10 @@
   position: relative;
   padding: 5px;
   margin: 5px;
+  white-space: nowrap;
   font-size: 21px;
   color: #fff;
+  cursor: pointer;
 }
 
 .navigation span {

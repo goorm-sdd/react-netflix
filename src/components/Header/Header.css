@@ -1,15 +1,17 @@
 .header {
   position: fixed;
+  display: flex;
   top: 0;
   left: 0;
   right: 0;
-  display: flex;
-  gap: 40px;
+  min-width: 375px;
   height: 80px;
+  padding-left: 50px;
+  justify-content: space-around;
   align-items: center;
   background-color: rgb(20, 20, 20);
   color: white;
-  z-index: 2;
+  z-index: 3;
 }
 
 .header a {
@@ -18,4 +20,9 @@
 }
 .header_link:hover {
   text-decoration: underline;
+}
+@media screen and (max-width: 500px) {
+  .header a {
+    font-size: 19px;
+  }
 }
