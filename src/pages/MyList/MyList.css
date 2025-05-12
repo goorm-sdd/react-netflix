@@ -31,6 +31,7 @@
 .poster {
   width: 100%;
   height: 100%;
+  aspect-ratio: 2 / 3;
   object-fit: cover;
   border-radius: 4px;
 }
@@ -46,7 +47,7 @@
   transition: opacity 0.3s ease;
 }
 
-.poster_container:hover .item_overlay {
+.mylist_item:hover .item_overlay {
   opacity: 1;
 }
 
