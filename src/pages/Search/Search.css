@@ -4,7 +4,7 @@
 }
 .search_form {
   position: relative;
-  background-color: #424242;
+  background-color: #242424;
 }
 .search_input_box {
   height: 52px;
@@ -35,10 +35,9 @@
 .suggestions {
   position: absolute;
   width: 100%;
-  background: white;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  border-top: 1px solid #383838;
+  background: #2a2929;
+  color: #ececec;
   z-index: 10;
 }
 
@@ -48,41 +47,36 @@
 }
 
 .suggestions li:hover {
-  background-color: #eee;
+  background-color: #22198a;
 }
 
 .search_container h3 {
   margin: 20px 10px;
   font-size: 26.75px;
-  color: #fff;
+  color: #ececec;
 }
-
-.search_container ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.thumbnail_container {
+  margin-bottom: 12px;
+  background-color: #2a2929;
 }
-
 .thumbnail_container li {
   overflow: hidden;
   position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 76px;
-  border-bottom: 2px solid #000;
-  background-color: #424242;
+  border-top: 1px solid #191919;
 }
 .thumbnail_item {
   overflow: hidden;
+  display: block;
   width: 146px;
   margin-right: 15px;
 }
 .thumbnail_item img {
-  width: 146px;
-  height: 76px;
-  object-fit: cover;
-  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .thumbnail_container .item_title {
@@ -91,7 +85,7 @@
   flex: 1;
   margin-right: 60px;
   font-size: 0.9rem;
-  color: #fff;
+  color: #ececec;
 }
 
 .thumbnail_container .item_title:after {

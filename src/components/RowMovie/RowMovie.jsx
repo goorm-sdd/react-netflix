@@ -16,7 +16,7 @@ const RowMovie = ({ title, fetchUrl, onInfoClick }) => {
         const mapped = filtered.map((item) => ({
           id: item.id,
           title: item.title || item.name,
-          poster: `https://image.tmdb.org/t/p/w300${item.poster_path}`,
+          poster: `https://image.tmdb.org/t/p/w200${item.poster_path}`,
           media_type: item.media_type || (item.title ? 'movie' : 'tv'),
         }));
         setItems(mapped);
@@ -35,9 +35,31 @@ const RowMovie = ({ title, fetchUrl, onInfoClick }) => {
         spaceBetween={8}
         grabCursor={true}
         slidesPerView="auto"
+        breakpoints={{
+          1000: {
+            slidesPerView: 10,
+            slidesPerGroup: 10,
+          },
+          800: {
+            slidesPerView: 5,
+            slidesPerGroup: 5,
+          },
+          600: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+          },
+          400: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
+          300: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
+        }}
       >
         {items.map((item) => (
-          <SwiperSlide key={item.id} style={{ width: '103px' }}>
+          <SwiperSlide key={item.id}>
             <img
               className="row_poster"
               src={item.poster}
