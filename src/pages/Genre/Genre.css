@@ -14,7 +14,14 @@
 .grid_item img {
   width: 100%;
   height: auto;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
 }
+
+.grid_item img:hover {
+  transform: scale(1.05);
+}
+
 @media screen and (min-width: 1000px) {
   .grid_container {
     grid-template-columns: repeat(5, 1fr);
