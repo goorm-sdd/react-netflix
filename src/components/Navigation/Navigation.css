@@ -4,7 +4,7 @@
   margin: 5px;
   white-space: nowrap;
   font-size: 21px;
-  color: #fff;
+  color: #ececec;
   cursor: pointer;
 }
 
@@ -23,7 +23,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-color: rgb(20, 20, 20);
   z-index: 2;
 }
 
@@ -32,7 +32,7 @@
   font-size: 25px;
 }
 .navigation_menu a {
-  color: #fff;
+  color: #ececec;
 }
 .navigation_menu a:hover {
   text-decoration: underline;
@@ -51,4 +51,10 @@
   font-size: 19px;
   color: #fff;
   cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .navigation {
+    font-size: 17px;
+  }
 }
