@@ -1,4 +1,4 @@
-import { useMyList } from '../../context/MyListContext';
+import { useMyList } from '../../hooks/useMyList';
 import MyListIcon from '../../assets/icon-mylist-plus.svg';
 import ShareIcon from '../../assets/icon-share.svg';
 import { useDetailData } from '../../hooks/useDetailData';
