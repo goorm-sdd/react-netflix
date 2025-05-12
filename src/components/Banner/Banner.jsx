@@ -3,7 +3,7 @@ import { useContentData } from '../../hooks/useContentData';
 import { instance } from '../../services/api';
 import { requests } from '../../services/requests';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useMyList } from '../../context/MyListContext';
+import { useMyList } from '../../hooks/useMyList';
 import MyListIcon from '../../assets/icon-mylist-plus.svg';
 import PlayIcon from '../../assets/icon-modal-play.svg';
 import InfoIcon from '../../assets/icon-info.svg';
