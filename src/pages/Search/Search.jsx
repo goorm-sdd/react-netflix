@@ -104,17 +104,17 @@ const Search = () => {
             <h3>Search Results</h3>
             <ul className="thumbnail_container">
               {results.map((item) => (
-                <li key={item.id}>
-                  <div
-                    className="thumbnail_item"
-                    onClick={() =>
-                      openModal(
-                        item.id,
-                        item.media_type || (item.title ? 'movie' : 'tv'),
-                      )
-                    }
-                    style={{ cursor: 'pointer' }}
-                  >
+                <li
+                  key={item.id}
+                  onClick={() =>
+                    openModal(
+                      item.id,
+                      item.media_type || (item.title ? 'movie' : 'tv'),
+                    )
+                  }
+                  style={{ cursor: 'pointer' }}
+                >
+                  <div className="thumbnail_item">
                     <img
                       src={
                         item.poster_path
@@ -139,17 +139,17 @@ const Search = () => {
               <h3>Top Rated</h3>
               <ul className="thumbnail_container">
                 {topRated.slice(0, 10).map((item) => (
-                  <li key={item.id}>
-                    <div
-                      className="thumbnail_item"
-                      onClick={() =>
-                        openModal(
-                          item.id,
-                          item.media_type || (item.title ? 'movie' : 'tv'),
-                        )
-                      }
-                      style={{ cursor: 'pointer' }}
-                    >
+                  <li
+                    key={item.id}
+                    onClick={() =>
+                      openModal(
+                        item.id,
+                        item.media_type || (item.title ? 'movie' : 'tv'),
+                      )
+                    }
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <div className="thumbnail_item">
                       <img
                         src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
                         alt={item.title || item.name}

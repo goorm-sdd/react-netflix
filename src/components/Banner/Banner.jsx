@@ -100,14 +100,14 @@ const Banner = ({ onInfoClick, type = 'all' }) => {
 
   return (
     <div className="banner">
-      <div className="banner_poster">
-        <img
-          src={`https://image.tmdb.org/t/p/original${content.poster_path}`}
-          alt={content.title || content.name || 'Poster'}
-          onClick={() => onInfoClick(content.id, content.media_type)}
-        />
-      </div>
-      <div className="banner_contents">
+      <div className="banner_poster_container">
+        <div className="banner_poster">
+          <img
+            src={`https://image.tmdb.org/t/p/original${content.poster_path}`}
+            alt={content.title || content.name || 'Poster'}
+            onClick={() => onInfoClick(content.id, content.media_type)}
+          />
+        </div>
         <div className="banner_buttons">
           <div
             className={`banner_mylist ${contentInMyList ? 'active' : ''}`}
@@ -132,29 +132,29 @@ const Banner = ({ onInfoClick, type = 'all' }) => {
             <p>Info</p>
           </div>
         </div>
-        <div className="banner_previews">
-          <div className="banner_preview">
-            <p>Previews</p>
-          </div>
-          <Swiper
-            className="banner_previews_swiper"
-            spaceBetween={12}
-            slidesPerView="auto"
-            grabCursor={true}
-          >
-            {previews.map((content) => (
-              <SwiperSlide key={content.id} style={{ width: '102px' }}>
-                <div
-                  className="preview_item"
-                  onClick={() => onInfoClick(content.id, content.media_type)}
-                  style={{ cursor: 'pointer' }}
-                >
-                  <img src={content.image} alt={content.title} />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+      </div>
+      <div className="banner_contents">
+        <div className="banner_preview">
+          <p>Previews</p>
         </div>
+        <Swiper
+          className="banner_previews_swiper"
+          spaceBetween={12}
+          slidesPerView="auto"
+          grabCursor={true}
+        >
+          {previews.map((content) => (
+            <SwiperSlide key={content.id} style={{ width: '102px' }}>
+              <div
+                className="preview_item"
+                onClick={() => onInfoClick(content.id, content.media_type)}
+                style={{ cursor: 'pointer' }}
+              >
+                <img src={content.image} alt={content.title} />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );
