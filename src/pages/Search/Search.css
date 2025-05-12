@@ -52,7 +52,7 @@
 
 .search_container h3 {
   margin: 20px 10px;
-  font-size: 26.75px;
+  font-size: 22px;
   color: #ececec;
 }
 .thumbnail_container {
@@ -84,7 +84,7 @@
   -webkit-box-flex: 1;
   flex: 1;
   margin-right: 60px;
-  font-size: 0.9rem;
+  font-size: 14px;
   color: #ececec;
 }
 
@@ -103,4 +103,14 @@
   margin: 15px 0 15px 10px;
   font-size: 0.9rem;
   color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+  .search_container h3 {
+    margin: 20px 10px 10px;
+    font-size: 17px;
+  }
+  .thumbnail_container li {
+    height: 60px;
+  }
 }

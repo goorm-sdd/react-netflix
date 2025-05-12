@@ -16,13 +16,17 @@
 
 .header a {
   font-size: 21px;
-  color: white;
+  color: #ececec;
 }
 .header_link:hover {
   text-decoration: underline;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
+  .header {
+    padding-left: 20px;
+    justify-content: space-evenly;
+  }
   .header a {
-    font-size: 19px;
+    font-size: 17px;
   }
 }

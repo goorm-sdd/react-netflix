@@ -39,3 +39,9 @@
   width: 160px;
   height: auto;
 }
+
+@media screen and (max-width: 600px) {
+  .row_title {
+    font-size: 17px;
+  }
+}
