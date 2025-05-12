@@ -13,19 +13,12 @@ export const MyListProvider = ({ children }) => {
 
   const addToMyList = (content) => {
     if (!myList.some((item) => item.id === content.id)) {
-      setMyList((prevList) => {
-        const updatedList = [...prevList, content];
-        localStorage.setItem('myList', JSON.stringify(updatedList));
-        return updatedList;
-      });
+      setMyList((prevList) => [...prevList, content]);
     }
   };
+
   const removeFromMyList = (contentId) => {
-    setMyList((prevList) => {
-      const updatedList = prevList.filter((movie) => movie.id !== contentId);
-      localStorage.setItem('myList', JSON.stringify(updatedList));
-      return updatedList;
-    });
+    setMyList((prevList) => prevList.filter((movie) => movie.id !== contentId));
   };
 
   const isInMyList = (contentId) => {
