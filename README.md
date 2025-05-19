@@ -23,13 +23,21 @@
 ```mermaid
 gantt
     title react-netflix
-    dateformat YY-MM-DD
+    dateformat YYYY-MM-DD
+    axisFormat %d
+    excludes weekends
+    tickInterval 1day
+    todayMarker stroke-width:5px,stroke:#0f0,opacity:0.5
     section 기획
-        디자인 시안 작성    :2025-05-01, 3d
-        역할 분담    :2025-05-03, 1d
+        디자인 시안 작성    :active, a1, 2025-05-01, 3d
+        역할 분담    :after a1, 1d
     section FE
         상세 모달 기능    :2025-05-04,  1d
-        검색 기능:    2025-05-04, 2d
+        검색 기능    :2025-05-04, 2d
+        test1    :2025-05-05, 5d
+        test2    :2025-05-16, 2d
+        test3    :crit, 2025-05-08, 3d
+        test4    :2025-05-17, 4d
     section BE
         DB 설계    :2025-05-01, 2d
         EC2 배포    :2025-05-03, 3d
