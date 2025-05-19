@@ -2,7 +2,7 @@
 name: "✅ 기능 테스트 체크리스트"
 about: "담당 기능에 대한 동작 및 예외 상황 테스트 체크리스트입니다."
 title: "[테스트] 기능 테스트 - {기능명}"
-labels: [aq]
+labels: [qa]
 assignees: ''
 
 ---
